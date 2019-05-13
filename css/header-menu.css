@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-	background: url("img/header.jpg");
+	background: url("../img/header.jpg");
 	background-position: top;
 	background-repeat: no-repeat;
 	background-size: cover;
