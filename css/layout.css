@@ -1,13 +1,11 @@
 .content .container {
 	padding: 30px 20px 0 20px;
 }
-
 .content {
 	width: 1030px;
 	max-width: 100%;
 	margin: auto;
 }
-
 .content-button {
 	padding: 30px;
 	position: absolute;
