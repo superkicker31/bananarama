@@ -6,6 +6,20 @@
 	height: 100vh;
 	border-bottom: 2px solid grey;
 }
+.headerBg {
+	background: #5E9EA7;
+	height: 0;
+	width: 100%;
+	transition: all 0.3s ease-in-out;
+	position: fixed;
+	top: 0;
+}
+
+.headerBg.display{
+	height: 90px;
+	z-index: 90;
+}
+
 .logo {
 	position: fixed;
 	z-index: 110;
