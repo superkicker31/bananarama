@@ -1,24 +1,23 @@
-body {
-	margin: 0;
-	font-size: 18px;
-}
-
 .header {
-	background: url("/img/header.jpg");
+	background: url("../img/header.jpg");
 	background-position: top;
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
 	border-bottom: 2px solid grey;
 }
-
-.header-menu {
-	text-align: right;
-	height: 100%;
+.logo {
+	position: fixed;
+	z-index: 110;
+	top: 0;
+	left: 0;
+	padding: 10px;
+	width: 130px;
+	height: 105px;
+	max-width: 60%;
 }
-
 .header-menu-list {
-	position: absolute;
+	position: fixed;
 	z-index: 100;
 	right: 0;
 	top: 0;
@@ -31,40 +30,38 @@ body {
 	transition: all 0.6s ease-in-out;
 	background-color: #5E9EA7;
 }
-
 .header-menu-list.display {
 	display: block;
 	text-align: right;
 	width: 100%;
+	height: 100%;
 }
 .header-menu-list li {
 	text-align: right;
 }
-
 .header-menu-list a {
 	font-family: 'Rubik', 'Arial', sans-serif;
+	font-size: 32px;
 	color: #fff;
 	text-decoration: none;
 	text-transform: uppercase;
 	display: block;
 	transition: all 0.6s ease-in-out;
-	padding: 10px 10px 10px 0;
+	padding: 20px 20px 20px 0;
 }
-
 .header-menu-list.display a {
 	color: #fff;
 }
 .toggle-menu-button {
 	transition: all 0.6s ease-in-out;
 	z-index: 120;
-	position: absolute;
+	position: fixed;
 	cursor: pointer;
 	right: 0;
 }
 .toggle-menu-button.active {
 	color: #fff;
 }
-
 .toggle-menu-button i{
 	color: #fff;
 	padding: 20px;
