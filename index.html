@@ -9,11 +9,13 @@
 	<link rel="stylesheet" type="text/css" href="css/footer.css">	
 	<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Rubik" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
 	<div class="headerBg" id="headerBg">
 	</div>
-	<a href="/#">
+	<a class="logo-link" href="/#">
 		<img class="logo" src="img/logo.png">		
 	</a>
 	<a id="toggle-menu-button" class="toggle-menu-button text-white"><span class="text-xl">MENU</span> <i id="menu-icon" class="fas fa-football-ball fa-2x"></i></a>
@@ -29,8 +31,8 @@
 		</h1>
 		<a href="#content" class="text-white content-button"><i class="fas fa-chevron-down fa-2x"></i></a>
 	</div>
-	<div class="content" id="content">
-		<div class="container">
+	<div class="container">
+		<div class="content" id="content">
 			<div>
 				<h1>
 				Willkommen bei der Bananarama Fantasy Football Liga
@@ -67,15 +69,39 @@
 	</div>
 	<div class="footer">
 		<div class="container flex row">
-			<div class="col-3 left">
-			<h3>
-				Social Media
-			</h3>
+			<div class="col-3 left social">
+				<h3>
+					Social Media
+				</h3>
+				<div class="flex-sm flex-wrap">
+					<a>
+						<p>
+							<i class="fab fa-facebook-f fa-2x"></i>
+						</p>	
+					</a>
+					<a>
+						<p>
+							<i class="fab fa-twitter fa-2x"></i>
+						</p>
+					</a>
+				</div>
 		</div>
-		<div class="col-3 center">
+		<div class="col-3 center leagues">
 			<h3>
-				Some Stuff
+				League Links
 			</h3>
+			<div class="flex">
+				<a>
+					<p>
+						Classic<i class="fas fa-football-ball px-2"></i>
+					</p>
+				</a>
+				<a>
+					<p>
+						Dynasty<i class="fas fa-football-ball px-2"></i>
+					</p>
+				</a>
+			</div>
 		</div>
 		<div class="col-3 right">
 			<h3>

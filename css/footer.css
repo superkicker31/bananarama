@@ -5,6 +5,7 @@
 }
 
 .footer .container a {
+	display: block;
 	color: #fff;
 	font-family: 'Rubik', 'Arial', sans-serif;
 	font-weight: 400;
@@ -13,5 +14,10 @@
 
 .footer .container a:hover {
 	font-family: 'Rubik', 'Arial', sans-serif;
+	color: #fff;
+}
+
+.footer .social i {
+	padding: 0 15px 0 0;
 	color: #fff;
 }
