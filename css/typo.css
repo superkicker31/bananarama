@@ -60,6 +60,7 @@ p {
 }
 .content a   {
 	font-family: 'Crimson Text', serif;
+	color: rgb(94, 158, 167);
 	font-weight: 600;
 }
 

@@ -4,6 +4,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
+	width: 100%;
 	border-bottom: 2px solid grey;
 }
 .headerBg {
@@ -12,15 +13,25 @@
 	width: 100%;
 	transition: all 0.3s ease-in-out;
 	position: fixed;
+	z-index: 20;
 	top: 0;
 }
 
 .headerBg.display{
+	position: fixed;
 	height: 90px;
 	z-index: 90;
 	box-shadow: 0 3px 10px #274862;
 }
+@keyframes jump { 
+	0% { bottom: 0; } 
+	50% { bottom: 15px; }
+	100% { bottom: 0; } 
+}
 
+.content-button {
+	animation: jump 2s infinite;
+}
 .logo-link {
 	
 }
@@ -76,6 +87,7 @@
 	vertical-align: center;
 	position: fixed;
 	cursor: pointer;
+	top: 0;
 	right: 0;
 }
 .toggle-menu-button.active {

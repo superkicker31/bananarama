@@ -1,12 +1,13 @@
 includeHTML();
 
-window.onload = function () {
-	const menu = document.getElementById("header-menu-list");
-	const btn = document.getElementById("toggle-menu-button");
-	const icon = document.getElementById("menu-icon");
-	const body = document.getElementById("body");
-	const headerBg = document.getElementById('headerBg');
 	
+window.onload = function () {
+const menu = document.getElementById("header-menu-list");
+const btn = document.getElementById("toggle-menu-button");
+const icon = document.getElementById("menu-icon");
+const body = document.getElementById("body");
+const headerBg = document.getElementById('headerBg');
+const header = document.getElementById('header');	
 	if (btn) {
 		btn.addEventListener("click", toggleMenu);
 	}	
@@ -21,8 +22,11 @@ window.onload = function () {
 	
 }
 function displayHeaderBg() {
+		var headerHeight = header.offsetHeight;
 		var scrollTop = window.scrollY;
-		if (scrollTop > 0) {
+
+		console.log(scrollTop);
+		if (scrollTop >= headerHeight) {
 			headerBg.classList.add("display");	
 		}
 		else {
