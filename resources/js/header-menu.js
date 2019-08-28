@@ -1,11 +1,11 @@
 includeHTML();
 
-	
 window.onload = function () {
-console.log("aksjdhakjs");
-	const btn = document.getElementById("toggle-menu-button");
+	let btn = document.getElementById("toggle-menu-button");
 
 	if (btn) {
+
+		console.log(btn);
 		btn.addEventListener("click", toggleMenu);
 	}
 
@@ -31,7 +31,5 @@ console.log("aksjdhakjs");
 		}
 
 	}
-
 window.onscroll = function() {displayHeaderBg()};
-
 };
