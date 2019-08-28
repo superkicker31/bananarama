@@ -2,10 +2,15 @@ includeHTML();
 
 window.onload = function () {
     const btn = document.getElementById("toggle-menu-button");
-    if (btn) {
-        btn.addEventListener("click", toggleMenu);
-    } else {
-        location.reload();
+    for (let i = 1; i <= 5; i++) {
+        if (btn) {
+            btn.addEventListener("click", toggleMenu);
+        } else {
+            location.reload();
+        }
+        if (i === 5) {
+            alert("Site could not load correctly. Please refresh the page.")
+        }
     }
 };
 
