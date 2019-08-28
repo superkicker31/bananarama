@@ -10,3 +10,12 @@ html {
 	top: 80%;
 	right: 15%;
 }
+
+.content-block.hero-text{
+	padding-top: 0;
+	margin: -190px 0 100px 0;
+}
+
+.hero-text .boxed {
+	background: var(--white);
+}

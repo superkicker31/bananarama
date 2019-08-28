@@ -1,51 +1,58 @@
-<div include-html="header.html"></div>
-<div class="container">
-	<div class="content" id="content">
-		<div class="content-block">
-			<h1>
-			Willkommen bei der Bananarama Fantasy Football Liga
-			</h1>
-			<h2>Die beste Liga aller Zeiten!</h2>
-			<p>
-				Wenn du es bis hierher geschafft hast, bist du schon mal was ganz besonderes. Viel Spaß beim durchstöbern unserer Liga!
-			</p>
-			<h2>Geschichte</h2>
-			<p>
-				Die Bananarama Liga geht 2019 in ihre dritte Saison.
-				Jedes Jahr ends der Spaß sag ich euch.
-			</p>
-		</div>
-		<div class="flex row content-block blog-post">
-			<div class="col-2 left">
-				<img class="" src="img/laptop.png">
-			</div>
-			<div class="col-2 right">
-					<h2>Das ist ein Blog Post!</h2>
-					<div>
-						<p>
-							Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-						</p>
-						<a href="blog-post-1">Mehr lesen...</a>
-					</div>
-					<div>
-						<p><strong>Tags: </strong> <a class="px-2" href="/#">classic</a><a  class="px-2" href="">ff</a></p>
-					</div>			
-			</div>
-		</div>
+<div include-html="partials/header.html"></div>
+<div class="container home">
+    <div class="content" id="content">
+        <div class="content-block hero-text">
+            <div class="content-container">
+                <div class="boxed shadow-lg rounded-md content-container">
+                    <h1 class="text-centered">
+                        Willkommen bei Bananarama Fantasy Football
+                    </h1>
+                    <p>
+                        Wenn du es bis hierher geschafft hast, bist du schon mal was ganz besonderes. Viel Spaß beim
+                        durchstöbern unserer Liga!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-block-fullwidth bg-grey content-block">
+            <div class="flex content-container">
+                <div class="col-2-3 left">
+                    <h2>Hör doch mal in unsere letzte Podcast-Folge rein:</h2>
+                    <p>In der letzten Ausgabe des Bananarama Dynasty Podcasts sprechen wir über die generelle
+                        Aufstellung der Liga und einige wichtige Regeln, die es zu beachten gilt.</p>
+                </div>
+                <div class="col-1-3 right">
+                    <iframe src='https://podomatic.com/embed/html5/episode/9510565?autoplay=false' height='120' width='100%'frameborder='0' marginheight='0' marginwidth='0' scrolling='no' allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="content-block">
+            <div class="content-container">
+                <div class="flex row blog-post preview">
+                    <div class="col-2 left image">
+                        <div class="img-banana-logo image">
 
-		<div class="content-block">
-			<h2>Hör doch mal in unsere letzte Podcast-Folge rein:</h2>
-			<div class="flex">
-				<div class="col-2 left">
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
-				</div>
-				<div class="col-2 right">
-					<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/548246226%3Fsecret_token%3Ds-Nhfcw&color=%23ecbf3a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
+                        </div>
+                    </div>
+                    <div class="col-2 right blog-content">
+                        <div class="excerpt">
+                            <h2>Das ist ein Blog Post!</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                            </p>
+                        </div>
+                        <div class="bottom flex">
+                            <div class="tags"><span>Tags: </span> <a class="px-2" href="pages/classic.html">classic</a>|<a
+                                    class="px-2" href="">ff</a></div>
+                            <a href="posts/blog-post-1">Mehr lesen ></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div include-html="footer.html"></div>
-<script type="text/javascript" src="js/include.js"></script>
-<script type="text/javascript" src="js/header-menu.js"></script>
+<div include-html="partials/footer.html"></div>
+<script type="text/javascript" src="resources/js/include.js"></script>
+<script type="text/javascript" src="resources/js/header-menu.js"></script>

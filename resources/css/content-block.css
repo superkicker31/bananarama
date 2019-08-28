@@ -1,0 +1,29 @@
+.boxed {
+    padding: 30px 50px;
+}
+
+.rounded-sm {
+    border-radius: var(--rounded-sm);
+}
+.rounded-md {
+    border-radius: var(--rounded-md);
+}
+.rounded-lg {
+    border-radius: var(--rounded-lg);
+}
+.rounded-full {
+    border-radius: var(--rounded-full);
+}
+
+.shadow-sm {
+    box-shadow: var(--shadow-sm);
+}
+.shadow-md {
+    box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+    box-shadow: var(--shadow-lg);
+}
+.shadow-xl {
+    box-shadow: var(--shadow-xl);
+}
