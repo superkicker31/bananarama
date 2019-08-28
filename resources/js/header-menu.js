@@ -1,11 +1,11 @@
 includeHTML();
 
-location.reload();
-
 window.onload = function () {
     const btn = document.getElementById("toggle-menu-button");
     if (btn) {
         btn.addEventListener("click", toggleMenu);
+    } else {
+        location.reload();
     }
 };
 
