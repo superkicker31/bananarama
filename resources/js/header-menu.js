@@ -6,7 +6,6 @@ window.onload = function () {
 	const btn = document.getElementById("toggle-menu-button");
 	const icon = document.getElementById("menu-icon");
 	const headerBg = document.getElementById('headerBg');
-	const header = document.getElementById('header');
 
 	if (btn) {
 		btn.addEventListener("click", toggleMenu);
@@ -19,6 +18,7 @@ window.onload = function () {
 	}
 
 	function displayHeaderBg() {
+		let header = document.getElementById('header');
 		let headerHeight = header.offsetHeight;
 		let scrollTop = window.scrollY;
 
