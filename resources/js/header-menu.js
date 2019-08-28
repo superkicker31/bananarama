@@ -2,7 +2,7 @@ includeHTML();
 
 	
 window.onload = function () {
-
+console.log("aksjdhakjs");
 	const btn = document.getElementById("toggle-menu-button");
 
 	if (btn) {
