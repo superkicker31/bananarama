@@ -5,14 +5,12 @@ window.onload = function () {
 
 	let btn = document.getElementById("toggle-menu-button");
 
-
 	if (btn) {
 		btn.addEventListener("click", toggleMenu);
 	}
 
 	function toggleMenu() {
 		let menu = document.getElementById("header-menu-list");
-		let btn = document.getElementById("toggle-menu-button");
 		let icon = document.getElementById("menu-icon");
 		menu.classList.toggle("display");
 		btn.classList.toggle("active");
