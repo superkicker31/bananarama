@@ -5,11 +5,12 @@ window.onload = function () {
     for (let i = 1; i <= 5; i++) {
         if (btn) {
             btn.addEventListener("click", toggleMenu);
+            break;
         } else {
             location.reload();
-        }
-        if (i === 5) {
-            alert("Site could not load correctly. Please refresh the page.")
+            if (i === 5 && !btn) {
+                alert("Site could not load correctly. Please refresh the page.")
+            }
         }
     }
 };
@@ -27,13 +28,14 @@ function displayHeaderBg() {
     const headerBg = document.getElementById("headerBg");
 
     let headerHeight = header.offsetHeight;
-	let scrollTop = window.scrollY;
-	if (scrollTop >= headerHeight - 90) {
-		headerBg.classList.add("display");
-	} else {
-		headerBg.classList.remove("display");
-	}
+    let scrollTop = window.scrollY;
+    if (scrollTop >= headerHeight - 90) {
+        headerBg.classList.add("display");
+    } else {
+        headerBg.classList.remove("display");
+    }
 }
+
 window.onscroll = function () {
-	displayHeaderBg()
+    displayHeaderBg()
 };
