@@ -2,16 +2,16 @@ includeHTML();
 
 	
 window.onload = function () {
-	const menu = document.getElementById("header-menu-list");
-	const btn = document.getElementById("toggle-menu-button");
-	const icon = document.getElementById("menu-icon");
-	const headerBg = document.getElementById('headerBg');
+
 
 	if (btn) {
 		btn.addEventListener("click", toggleMenu);
 	}
 
 	function toggleMenu() {
+		let menu = document.getElementById("header-menu-list");
+		let btn = document.getElementById("toggle-menu-button");
+		let icon = document.getElementById("menu-icon");
 		menu.classList.toggle("display");
 		btn.classList.toggle("active");
 		icon.classList.toggle("fa-rotate-90");
@@ -19,6 +19,7 @@ window.onload = function () {
 
 	function displayHeaderBg() {
 		let header = document.getElementById('header');
+		let headerBg = document.getElementById('headerBg');
 		let headerHeight = header.offsetHeight;
 		let scrollTop = window.scrollY;
 
