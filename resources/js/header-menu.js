@@ -23,7 +23,6 @@ window.onload = function () {
 		let headerHeight = header.offsetHeight;
 		let scrollTop = window.scrollY;
 
-		console.log(scrollTop);
 		if (scrollTop >= headerHeight-90) {
 			headerBg.classList.add("display");
 		} else {
