@@ -1,17 +1,15 @@
 includeHTML();
-window.onload = function () {
-    setTimeout(function () {
-        const btn = document.getElementById("toggle-menu-button");
-        const menu = document.getElementById("header-menu-list");
-        const icon = document.getElementById("menu-icon");
-        const header = document.getElementById("header");
-        const headerBg = document.getElementById("headerBg");
 
-        if (btn) {
-            btn.addEventListener("click", toggleMenu);
-        }
-    },100);
-};
+const btn = document.getElementById("toggle-menu-button");
+const menu = document.getElementById("header-menu-list");
+const icon = document.getElementById("menu-icon");
+const header = document.getElementById("header");
+const headerBg = document.getElementById("headerBg");
+
+if (btn) {
+    btn.addEventListener("click", toggleMenu);
+}
+
 
 function toggleMenu() {
     menu.classList.toggle("display");
@@ -20,14 +18,15 @@ function toggleMenu() {
 }
 
 function displayHeaderBg() {
-	let headerHeight = header.offsetHeight;
-	let scrollTop = window.scrollY;
-	if (scrollTop >= headerHeight - 90) {
-		headerBg.classList.add("display");
-	} else {
-		headerBg.classList.remove("display");
-	}
+    let headerHeight = header.offsetHeight;
+    let scrollTop = window.scrollY;
+    if (scrollTop >= headerHeight - 90) {
+        headerBg.classList.add("display");
+    } else {
+        headerBg.classList.remove("display");
+    }
 }
+
 window.onscroll = function () {
-	displayHeaderBg()
+    displayHeaderBg()
 };
