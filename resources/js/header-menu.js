@@ -1,10 +1,10 @@
 includeHTML();
 
 window.onload = function () {
-	let btn = document.getElementById("toggle-menu-button");
-
+	console.log("js running");
+	var btn = document.getElementById("toggle-menu-button");
+	console.log(btn);
 	if (btn) {
-
 		console.log(btn);
 		btn.addEventListener("click", toggleMenu);
 	}
