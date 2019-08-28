@@ -3,7 +3,7 @@ includeHTML();
 window.onload = function () {
 	console.log("js running");
 	var btn = document.getElementById("toggle-menu-button");
-	console.log(btn);
+
 	if (btn) {
 		console.log(btn);
 		btn.addEventListener("click", toggleMenu);
