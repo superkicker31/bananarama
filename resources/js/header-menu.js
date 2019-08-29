@@ -7,10 +7,10 @@ window.onload = function () {
             btn.addEventListener("click", toggleMenu);
             break;
         } else {
-            location.reload();
             if (i === 5 && !btn) {
                 alert("Site could not load correctly. Please refresh the page.")
             }
+            location.reload();
         }
     }
 };
