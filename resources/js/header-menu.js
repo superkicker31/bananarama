@@ -29,7 +29,7 @@ function displayHeaderBg() {
 
     let headerHeight = header.offsetHeight;
     let scrollTop = window.scrollY;
-    if (scrollTop >= headerHeight - 90) {
+    if (scrollTop >= headerHeight - 60) {
         headerBg.classList.add("display");
     } else {
         headerBg.classList.remove("display");

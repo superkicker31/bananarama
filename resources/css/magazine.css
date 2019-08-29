@@ -15,7 +15,7 @@
 }
 
 .magazine .slide-1 {
-    background: url("/resources/img/header.jpg") no-repeat;
+    background: url("../resources/img/header.jpg") no-repeat;
     background-position: top center;
     background-size: cover;
 }
