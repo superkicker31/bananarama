@@ -1,5 +1,3 @@
-includeHTML();
-
 window.onload = function () {
     const btn = document.getElementById("toggle-menu-button");
     for (let i = 1; i <= 5; i++) {
