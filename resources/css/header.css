@@ -16,7 +16,7 @@
 
 .headerBg.display{
 	position: fixed;
-	height: 90px;
+	height: 60px;
 	z-index: 90;
 	box-shadow: 0 3px 10px var(--secondary-color);
 }
@@ -71,8 +71,11 @@
 }
 .toggle-menu-button {
 	z-index: 120;
-	height: 90px;
-	vertical-align: center;
+	height: 60px;
+	width: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: fixed;
 	cursor: pointer;
 	top: 0;
@@ -84,5 +87,4 @@
 
 .toggle-menu-button i{
 	color: var(--white);
-	padding: 25px;
 }
