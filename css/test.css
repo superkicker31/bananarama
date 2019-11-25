@@ -1,0 +1,36 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.header , .episode-header{
+    background: url('/img/header-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+#header {
+    background-color: #f1f1f1; /* Grey background */
+    padding: 50px 10px; /* Some padding */
+    color: black;
+    text-align: center; /* Centered text */
+    font-size: 90px; /* Big font size */
+    font-weight: bold;
+    position: fixed; /* Fixed position - sit on top of the page */
+    top: 0;
+    width: 100%; /* Full width */
+    transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+  }
+
+.audiojs .time , .audiojs .play-pause{
+    border: 0px solid black;
+}
+
+.audiojs {
+    width: 100%;
+    background: #606060;
+}
+
+.episode-bg-overlay {
+    background: rgba(40,40,40,0.25);
+}

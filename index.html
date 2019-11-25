@@ -5,13 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="output.css">
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <audio src="media/Redraft.mp3" preload="auto" />
+    <div id="app">
+        <div class="w-full h-64 header text-white fixed" id="header">
+               <div class="flex lg:w-3/4 mx-auto">
+                    <a href="#episodes-section" class="pr-4 py-4 mr-4">Episoden</a>
+                    <a href="#episodes-redraft-section" class="p-4 mr-4">Episoden Redraft</a>
+                    <a href="#episodes-dynasty-section" class="p-4 mr-4">Episoden Dynasty</a>
+                    <a href="#announcements-section" class="p-4 mr-4">Ankündigungen</a>
+               </div>
+        </div>
+        
+        <div class="lg:w-3/4 mx-auto pt-64">
+            <div>
+                <h1 class="text-xl">Episoden</h1>
+            </div>
+            <div class="">
+                <bananarama-episode title="2019 Redraft Episode 1 - Somethings Fucky" filename="/media/Redraft.mp3"></bananarama-episode>
+            </div>
+            <div class="pt-8">
+                <bananarama-episode title="2019 Dynasty Episode drölf - Somethings Fucky" filename="/media/Dynasty.mp3"></bananarama-episode>
+            </div>
+        </div>
     </div>
-    <script src="audiojs/audio.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="/audiojs/audio.min.js"></script>
+    <script src="/app.js" defer></script>
 
     <script>
         audiojs.events.ready(function() {
