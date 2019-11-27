@@ -1,6 +1,6 @@
 Vue.component('bananarama-episode', {
   props: ['title', 'filename'],
-  template: '<div class="flex flex-col episode-header shadow"><span class="lg:h-64 h-32 bg-red-100 text-white episode-bg-overlay flex items-end p-4">{{ title }}</span><audio class="audio-player" v-bind:src="filename" preload="auto" /></div>'
+  template: '<div class="flex flex-col episode-header shadow-primary"><span class="lg:h-64 h-32 bg-red-100 text-gray-200 text-3xl episode-bg-overlay flex items-end p-4">{{ title }}</span><audio class="audio-player" v-bind:src="filename" preload="none" /></div>'
 });
 
 var app = new Vue({
@@ -40,7 +40,6 @@ function setEpisode() {
   const otherLinks = document.getElementsByClassName(listname + '-episode-link');
   
   for (let i = 0; i< otherLinks.length; i++){
-    
     otherLinks[i].classList.remove('active-episode');
   }
   this.classList.add('active-episode');

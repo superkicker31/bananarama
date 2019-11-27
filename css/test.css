@@ -29,12 +29,12 @@ html {
 }
 
 .audiojs {
-    background: #505A6D;
+    background: #2F855A;
     width: 100%;
 }
 
 .audiojs .scrubber {
-    background: #505A6D;
+    background: #2F855A;
     border: 0px solid #000;
 }
 
@@ -43,12 +43,20 @@ html {
 }
 
 .audiojs .scrubber .progress {
-    background: #CBD5E0;
+    background: #fff;
 }
 .episode-bg-overlay {
-    background: rgba(40,40,40,0.35);
+    background: rgba(47, 133, 90, 0.3);
+}
+.header-bg-overlay {
+    background: rgba(47, 133, 90, 0.1);
 }
 
 .active-episode {
     font-weight: 600;
+    color: #2F855A;
+}
+
+.shadow-primary {
+    box-shadow: 0 3px 5px 0 rgba(47, 133, 90, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
