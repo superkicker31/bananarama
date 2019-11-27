@@ -11253,6 +11253,10 @@ video {
   width: 16rem;
 }
 
+.w-128 {
+  width: 32rem;
+}
+
 .w-auto {
   width: auto;
 }
@@ -11401,10 +11405,28 @@ video {
   z-index: auto;
 }
 
-.header , .episode-header{
+html {
+  scroll-behavior: smooth;
+}
+
+.episode-header{
+  background: url('/img/logo.png');
+  background-size: cover;
+  background-position: center center;
+}
+
+#header {
   background: url('/img/header-bg.jpg');
   background-size: cover;
   background-position: center center;
+  height: 200px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+}
+
+#header a {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .audiojs .time , .audiojs .play-pause{
@@ -11412,12 +11434,25 @@ video {
 }
 
 .audiojs {
+  background: #505A6D;
   width: 100%;
-  background: #606060;
+}
+
+.audiojs .scrubber {
+  background: #505A6D;
+  border: 0px solid #000;
+}
+
+.audiojs .scrubber .loaded {
+  background: rgba(255,255,255,0.4);
+}
+
+.audiojs .scrubber .progress {
+  background: #CBD5E0;
 }
 
 .episode-bg-overlay {
-  background: rgba(40,40,40,0.25);
+  background: rgba(40,40,40,0.35);
 }
 
 @media (min-width: 640px) {
@@ -22045,6 +22080,10 @@ video {
 
   .sm\:w-64 {
     width: 16rem;
+  }
+
+  .sm\:w-128 {
+    width: 32rem;
   }
 
   .sm\:w-auto {
@@ -32823,6 +32862,10 @@ video {
     width: 16rem;
   }
 
+  .md\:w-128 {
+    width: 32rem;
+  }
+
   .md\:w-auto {
     width: auto;
   }
@@ -43599,6 +43642,10 @@ video {
     width: 16rem;
   }
 
+  .lg\:w-128 {
+    width: 32rem;
+  }
+
   .lg\:w-auto {
     width: auto;
   }
@@ -54373,6 +54420,10 @@ video {
 
   .xl\:w-64 {
     width: 16rem;
+  }
+
+  .xl\:w-128 {
+    width: 32rem;
   }
 
   .xl\:w-auto {

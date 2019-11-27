@@ -4,33 +4,47 @@
 
 @tailwind utilities;
 
-.header , .episode-header{
-    background: url('/img/header-bg.jpg');
+html {
+    scroll-behavior: smooth;
+}
+
+.episode-header{
+    background: url('/img/logo.png');
     background-size: cover;
     background-position: center center;
 }
 #header {
-    background-color: #f1f1f1; /* Grey background */
-    padding: 50px 10px; /* Some padding */
-    color: black;
-    text-align: center; /* Centered text */
-    font-size: 90px; /* Big font size */
-    font-weight: bold;
-    position: fixed; /* Fixed position - sit on top of the page */
-    top: 0;
-    width: 100%; /* Full width */
-    transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
-  }
+    background: url('/img/header-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 200px;
+    transition: all 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+}
+#header a {
+    transition: all 0.2s;
+}
 
 .audiojs .time , .audiojs .play-pause{
     border: 0px solid black;
 }
 
 .audiojs {
+    background: #505A6D;
     width: 100%;
-    background: #606060;
 }
 
+.audiojs .scrubber {
+    background: #505A6D;
+    border: 0px solid #000;
+}
+
+.audiojs .scrubber .loaded {
+    background: rgba(255,255,255,0.4);
+}
+
+.audiojs .scrubber .progress {
+    background: #CBD5E0;
+}
 .episode-bg-overlay {
-    background: rgba(40,40,40,0.25);
+    background: rgba(40,40,40,0.35);
 }
