@@ -101,3 +101,7 @@ html {
     background-position: left center;
     height: 32px;
 }
+
+.episode-header, .audiojs {
+    text-shadow: 2px 2px 2px rgba(47, 133, 90, 0.226);
+}
