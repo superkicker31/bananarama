@@ -11410,13 +11410,13 @@ html {
 }
 
 .episode-header{
-  background: url('/img/logo.png');
+  background: url('img/logo.png');
   background-size: cover;
   background-position: center center;
 }
 
 #header {
-  background: url('/img/header-bg.jpg');
+  background: url('img/header-bg.jpg');
   background-size: cover;
   background-position: center center;
   height: 200px;
