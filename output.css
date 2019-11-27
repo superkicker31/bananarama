@@ -11455,6 +11455,10 @@ html {
   background: rgba(40,40,40,0.35);
 }
 
+.active-episode {
+  font-weight: 600;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

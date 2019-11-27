@@ -14,7 +14,7 @@
         <div class="w-full header text-gray-200 fixed shadow-lg z-30" id="header">
             <div class="h-full w-full flex items-end episode-bg-overlay">
                     <div class="md:flex md:w-4/5 md:mx-auto mx-4 hidden uppercase tracking-wide">
-                        <a href="#fresh-episodes-section" class="p-4 mr-4 hover:border-gray-200 border-b-2 border-transparent">Fresh</a>
+                        <a href="#fresh-episodes-section" class="p-4 -ml-4 mr-4 hover:border-gray-200 border-b-2 border-transparent">Fresh</a>
                         <a href="#episodes-mixed-section" class="p-4 mr-4 hover:border-gray-200 border-b-2 border-transparent">Mixed</a>
                         <a href="#episodes-redraft-section" class="p-4 mr-4 hover:border-gray-200 border-b-2 border-transparent">Redraft</a>
                         <a href="#episodes-dynasty-section" class="p-4 mr-4 hover:border-gray-200 border-b-2 border-transparent">Dynasty</a>
@@ -35,18 +35,18 @@
                     <div class="lg:w-1/2 lg:pr-4 md:py-2">
                         <div class="font-mono">
                             <p class="border-b border-gray-400 py-2">
-                                <a class="episodes-open-link block cursor-pointer" data-title="2019 Redraft Episode 1" data-filename="media/07_Redraft_Podcast_Episode_1.mp3" data-playerid="epsides-player-fresh">
+                                <a class="episodes-open-link block cursor-pointer fresh-episode-link active-episode" data-listname="fresh" data-title="2019 Redraft Episode 1" data-filename="media/07_Redraft_Podcast_Episode_1.mp3" data-playerid="epsides-player-fresh">
                                    1. 2019 Bananarama Redraft Episode 1 (23.11.2019)
                                 </a>
                             </p>
                             <p class="border-b border-gray-400 py-2">
-                                <a class="episodes-open-link block cursor-pointer" data-title="2019 Dynasty Episode 3" data-filename="media/07_Dynasty_Podcast_Episode_3.mp3" data-playerid="epsides-player-fresh">
+                                <a class="episodes-open-link block cursor-pointer fresh-episode-link" data-listname="fresh" data-title="2019 Dynasty Episode 3" data-filename="media/07_Dynasty_Podcast_Episode_3.mp3" data-playerid="epsides-player-fresh">
                                     2. 2019 Bananarama Dynasty Episode 3 (23.11.2019)
                                 </a>
                             </p>
                         </div>
                     </div>
-                    <div class="lg:w-1/2  md:py-2 py-8" id="epsides-player-fresh">
+                    <div class="lg:w-1/2 py-8" id="epsides-player-fresh">
                         <bananarama-episode title="2019 Redraft Episode 1" filename="media/07_Redraft_Podcast_Episode_1.mp3"></bananarama-episode>
                     </div>
                 </div>
@@ -61,28 +61,28 @@
                     <div class="lg:w-1/2 lg:pr-4 md:py-2 py-8">
                         <div class="font-mono">
                                 <p class="border-b border-gray-400 py-2">
-                                    <a class="episodes-open-link block cursor-pointer" data-title="2019 Bananarama Episode 1" data-filename="media/03_Bananarama_Podcast_Episode_03_2019.mp3" data-playerid="episodes-player-mixed">
+                                    <a class="episodes-open-link block cursor-pointer mixed-episode-link active-episode" data-listname="mixed" data-title="2019 Bananarama Episode 1" data-filename="media/03_Bananarama_Podcast_Episode_03_2019.mp3" data-playerid="episodes-player-mixed">
                                        1. 2019 Bananarama Episode 1
                                     </a>
                                 </p>
                                 <p class="border-b border-gray-400 py-2">
-                                    <a class="episodes-open-link block cursor-pointer" data-title="2019 Bananarama Episode 2" data-filename="media/04_Bananarama_Podcast_Episode_04_2019.mp3" data-playerid="episodes-player-mixed">
+                                    <a class="episodes-open-link block cursor-pointer mixed-episode-link" data-listname="mixed" data-title="2019 Bananarama Episode 2" data-filename="media/04_Bananarama_Podcast_Episode_04_2019.mp3" data-playerid="episodes-player-mixed">
                                         2. 2019 Bananarama Episode 2
                                     </a>
                                 </p>
                                 <p class="border-b border-gray-400 py-2">
-                                    <a class="episodes-open-link block cursor-pointer" data-title="2019 Bananarama Episode 3" data-filename="media/05_Bananarama_Podcast_Episode_05_2019.mp3" data-playerid="episodes-player-mixed">
+                                    <a class="episodes-open-link block cursor-pointer mixed-episode-link" data-listname="mixed" data-title="2019 Bananarama Episode 3" data-filename="media/05_Bananarama_Podcast_Episode_05_2019.mp3" data-playerid="episodes-player-mixed">
                                         3. 2019 Bananarama Episode 3
                                     </a>
                                 </p>
                                 <p class="border-b border-gray-400 py-2">
-                                    <a class="episodes-open-link block cursor-pointer" data-title="2019 Bananarama Episode 4" data-filename="media/06_Bananarama_Podcast_Episode_06.mp3" data-playerid="episodes-player-mixed">
+                                    <a class="episodes-open-link block cursor-pointer mixed-episode-link" data-listname="mixed" data-title="2019 Bananarama Episode 4" data-filename="media/06_Bananarama_Podcast_Episode_06.mp3" data-playerid="episodes-player-mixed">
                                         2. 2019 Bananarama Episode 4
                                     </a>
                                 </p>
                             </div>
                     </div>
-                    <div  class="lg:w-1/2  md:py-2 py-8" id="episodes-player-mixed">
+                    <div  class="lg:w-1/2 py-8" id="episodes-player-mixed">
                         <bananarama-episode title="2019 Bananarama Episode 1" filename="media/03_Bananarama_Podcast_Episode_03_2019.mp3"></bananarama-episode>
                     </div>
                 </div>
@@ -97,12 +97,12 @@
                 <div class="lg:flex bg-white shadow-lg p-8 mt-4">
                     <div class="lg:w-1/2 lg:pr-4 md:py-2 py-8 font-mono">
                         <p class="border-b border-gray-400 py-2">
-                            <a class="episodes-open-link block cursor-pointer" data-title="2019 Bananarama Redraft Episode 1" data-filename="media/07_Redraft_Podcast_Episode_1.mp3" data-playerid="episodes-player-redraft">
+                            <a class="episodes-open-link block cursor-pointer redraft-episode-link active-episode" data-listname="redraft" data-title="2019 Bananarama Redraft Episode 1" data-filename="media/07_Redraft_Podcast_Episode_1.mp3" data-playerid="episodes-player-redraft">
                                 1. 2019 Bananarama Redraft Episode 1
                             </a>
                         </p>
                     </div>
-                    <div class="lg:w-1/2 md:py-2 py-8" id ="episodes-player-redraft">
+                    <div class="lg:w-1/2 py-8" id ="episodes-player-redraft">
                         <bananarama-episode title="2019 Bananarama Redraft Episode 1" filename="media/07_Redraft_Podcast_Episode_1.mp3"></bananarama-episode>
                     </div>
                 </div>
@@ -117,23 +117,23 @@
                 <div class="lg:flex bg-white shadow-lg p-8 mt-4">
                     <div class="lg:w-1/2 lg:pr-4 md:py-2 py-8 font-mono">
                         <p class="border-b border-gray-400 py-2">
-                            <a class="episodes-open-link block cursor-pointer" data-title="2019 Bananarama Dynasty Episode 1" data-filename="media/01_Dynasty_Podcast_Episode_01_2019.mp3" data-playerid="episodes-player-dynasty">
+                            <a class="episodes-open-link block cursor-pointer dynasty-episode-link active-episode" data-listname="dynasty" data-title="2019 Bananarama Dynasty Episode 1" data-filename="media/01_Dynasty_Podcast_Episode_01_2019.mp3" data-playerid="episodes-player-dynasty">
                                 1. 2019 Bananarama Dynasty Episode 1
                             </a>
                         </p>
                         <p class="border-b border-gray-400 py-2">
-                            <a class="episodes-open-link block cursor-pointer" data-title="2019 Bananarama Dynasty Episode 2" data-filename="media/02_Dynasty_Podcast_Episode_02_2019.mp3" data-playerid="episodes-player-dynasty">
+                            <a class="episodes-open-link block cursor-pointer dynasty-episode-link" data-listname="dynasty" data-title="2019 Bananarama Dynasty Episode 2" data-filename="media/02_Dynasty_Podcast_Episode_02_2019.mp3" data-playerid="episodes-player-dynasty">
                                 2. 2019 Bananarama Dynasty Episode 2
                             </a>
                         </p>
                         <p class="border-b border-gray-400 py-2">
-                            <a class="episodes-open-link block cursor-pointer" data-title="2019 Bananarama Dynasty Episode 3" data-filename="media/07_Dynasty_Podcast_Episode_3.mp3" data-playerid="episodes-player-dynasty">
+                            <a class="episodes-open-link block cursor-pointer dynasty-episode-link" data-listname="dynasty" data-title="2019 Bananarama Dynasty Episode 3" data-filename="media/07_Dynasty_Podcast_Episode_3.mp3" data-playerid="episodes-player-dynasty">
                                 3. 2019 Bananarama Dynasty Episode 3
                             </a>
                         </p>
                     </div>
                     
-                    <div class="lg:w-1/2 md:py-2 py-8" id ="episodes-player-dynasty">
+                    <div class="lg:w-1/2 py-8" id ="episodes-player-dynasty">
                         <bananarama-episode title="2019 Bananarama Dynasty Episode 1" filename="media/01_Dynasty_Podcast_Episode_01_2019.mp3"></bananarama-episode>
                     </div>
                 </div>

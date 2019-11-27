@@ -48,3 +48,7 @@ html {
 .episode-bg-overlay {
     background: rgba(40,40,40,0.35);
 }
+
+.active-episode {
+    font-weight: 600;
+}

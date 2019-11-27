@@ -30,13 +30,21 @@ function setEpisode() {
   const title = this.dataset.title;
   const filename = this.dataset.filename;
   const playerid = this.dataset.playerid;
+  const listname = this.dataset.listname;
 
+  console.log(listname);
   const player = document.querySelector('#' + playerid);
   const playerText = player.querySelector('.episode-bg-overlay');
   const audioPlayer = player.querySelector('.audio-player');
 
+  const otherLinks = document.getElementsByClassName(listname + '-episode-link');
+  
+  for (let i = 0; i< otherLinks.length; i++){
+    
+    otherLinks[i].classList.remove('active-episode');
+  }
+  this.classList.add('active-episode');
+
   audioPlayer.setAttribute('src', filename);
   playerText.innerHTML = title;
-
-  console.log(playerText)
 }
