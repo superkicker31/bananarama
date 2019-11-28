@@ -1,6 +1,6 @@
 Vue.component('bananarama-episode', {
   props: ['title', 'filename'],
-  template: '<div class="font-mono flex flex-col episode-header shadow-primary"><span class="lg:h-64 bg-red-100 text-gray-200 md:text-3xl text-2xl episode-bg-overlay flex items-end p-4">{{ title }}</span><audio class="audio-player" v-bind:src="filename" preload="none" /></div>'
+  template: '<div class="font-mono flex flex-col episode-header"><span class="lg:h-64 bg-red-100 text-gray-200 md:text-3xl text-2xl episode-bg-overlay flex items-end p-4">{{ title }}</span><audio class="audio-player" v-bind:src="filename" preload="none" /></div>'
 });
 
 var app = new Vue({
