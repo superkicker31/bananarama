@@ -84,7 +84,7 @@ html {
 }
 
 .audiojs .play-pause {
-    width: 45px;
+    min-width: 60px;
 }
 
 .audiojs .play {
