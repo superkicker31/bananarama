@@ -11476,7 +11476,7 @@ html {
 }
 
 .header-bg-overlay {
-  background: rgba(47, 133, 90, 0.1);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .active-episode {
