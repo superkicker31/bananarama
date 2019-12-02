@@ -14,9 +14,16 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 50) {
-    document.getElementById("header").style.height = "60px";
+    if (window.innerWidth > 920) {
+      document.getElementById("header-title").style.height = "0";
+      document.getElementById("header-title-text").style.display = "none";
+
+    } else {
+      document.getElementById("header-title").style.height = "60px";
+    }
   } else {
-    document.getElementById("header").style.height = "200px";
+    document.getElementById("header-title-text").style.display = "flex";
+    document.getElementById("header-title").style.height = "256px";
   }
 }
 
@@ -32,7 +39,6 @@ function setEpisode() {
   const playerid = this.dataset.playerid;
   const listname = this.dataset.listname;
 
-  console.log(listname);
   const player = document.querySelector('#' + playerid);
   const playerText = player.querySelector('.episode-bg-overlay');
   const audioPlayer = player.querySelector('.audio-player');
