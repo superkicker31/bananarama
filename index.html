@@ -39,26 +39,18 @@
                 <div class="lg:flex bg-white shadow-lg mt-4">
                     <div class="lg:w-2/3 lg:pr-4 py-6 px-8">
                         <div class="font-mono text-sm">
-                            <p class="border-b border-gray-400 border-dashed py-2 flex justify-between">
-                                <a class="episodes-open-link block cursor-pointer fresh-episode-link active-episode" data-listname="fresh" data-title="2019 Redraft Episode 2" data-filename="media/08_Redraft_Podcast_Episode_2.mp3" data-playerid="episodes-player-fresh">
-                                   1. 2019 Bananarama Redraft Episode 2 (01.12.2019)
+                            <p class="border-b border-gray-400 border-dashed py-2 flex justify-between" v-for="episode in episodes.fresh">
+                                <a class="episodes-open-link block cursor-pointer fresh-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="fresh" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-fresh">
+                                   {{ episode.title + ' (' + episode.date +')' }}
                                 </a>
-                                <a href='media/08_Redraft_Podcast_Episode_2.mp3' download='08_Redraft_Podcast_Episode_2.mp3'>
-                                    <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
-                                </a>
-                            </p>
-                            <p class="border-gray-400 py-2 flex justify-between">
-                                <a class="episodes-open-link block cursor-pointer fresh-episode-link" data-listname="fresh" data-title="2019 Dynasty Episode 4" data-filename="media/09_Dynasty_Podcast_Episode_4.mp3" data-playerid="episodes-player-fresh">
-                                    2. 2019 Bananarama Dynasty Episode 4 (01.12.2019)
-                                </a>
-                                <a href='media/09_Dynasty_Podcast_Episode_4' download='09_Dynasty_Podcast_Episode_4.mp3'>
+                                <a :href="episode.file + '.mp3'" :download="episode.title + '.mp3'">
                                     <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
                                 </a>
                             </p>
                         </div>
                     </div>
                     <div class="lg:w-1/3 lg:py-0 pt-4" id="episodes-player-fresh">
-                        <bananarama-episode title="2019 Redraft Episode 2" filename="media/08_Redraft_Podcast_Episode_2.mp3"></bananarama-episode>
+                        <bananarama-episode :title="episodes.fresh[0].title" :filename="episodes.fresh[0].file"></bananarama-episode>
                     </div>
                 </div>
             </div>
@@ -70,42 +62,18 @@
                 <div class="lg:flex bg-white shadow-lg mt-4">
                     <div class="lg:w-2/3 lg:pr-4 py-2 px-8 py-6">
                         <div class="font-mono text-sm">
-                            <p class="border-b border-gray-400 border-dashed py-2 flex justify-between">
-                                <a class="episodes-open-link block cursor-pointer mixed-episode-link active-episode" data-listname="mixed" data-title="2019 Bananarama Episode 1" data-filename="media/03_Bananarama_Podcast_Episode_03_2019.mp3" data-playerid="episodes-player-mixed">
-                                    1. 2019 Bananarama Episode 1
+                            <p class="border-b border-gray-400 border-dashed py-2 flex justify-between" v-for="episode in episodes.mixed">
+                                <a class="episodes-open-link block cursor-pointer mixed-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="mixed" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-mixed">
+                                    {{ episode.title + ' (' + episode.date +')' }}
                                 </a>
-                                <a href='media/03_Bananarama_Podcast_Episode_03_2019.mp3' download='03_Bananarama_Podcast_Episode_03_2019.mp3'>
-                                    <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
-                                </a>
-                            </p>
-                            <p class="border-b border-gray-400 border-dashed py-2 flex justify-between">
-                                <a class="episodes-open-link block cursor-pointer mixed-episode-link" data-listname="mixed" data-title="2019 Bananarama Episode 2" data-filename="media/04_Bananarama_Podcast_Episode_04_2019.mp3" data-playerid="episodes-player-mixed">
-                                    2. 2019 Bananarama Episode 2
-                                </a>
-                                <a href='media/04_Bananarama_Podcast_Episode_04_2019.mp3' download='04_Bananarama_Podcast_Episode_04_2019.mp3'>
-                                    <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
-                                </a>
-                            </p>
-                            <p class="border-b border-gray-400 border-dashed py-2 flex justify-between">
-                                <a class="episodes-open-link block cursor-pointer mixed-episode-link" data-listname="mixed" data-title="2019 Bananarama Episode 3" data-filename="media/05_Bananarama_Podcast_Episode_05_2019.mp3" data-playerid="episodes-player-mixed">
-                                    3. 2019 Bananarama Episode 3
-                                </a>
-                                <a href='media/05_Bananarama_Podcast_Episode_05_2019.mp3' download='05_Bananarama_Podcast_Episode_05_2019.mp3'>
-                                    <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
-                                </a>
-                            </p>
-                            <p class="border-gray-400 py-2 flex justify-between">
-                                <a class="episodes-open-link block cursor-pointer mixed-episode-link" data-listname="mixed" data-title="2019 Bananarama Episode 4" data-filename="media/06_Bananarama_Podcast_Episode_06.mp3" data-playerid="episodes-player-mixed">
-                                    4. 2019 Bananarama Episode 4
-                                </a>
-                                <a href='media/06_Bananarama_Podcast_Episode_06.mp3' download='06_Bananarama_Podcast_Episode_06.mp3'>
+                                <a :href="episode.file + '.mp3'" :download="episode.title + '.mp3'">
                                     <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
                                 </a>
                             </p>
                         </div>
                     </div>
                     <div  class="lg:w-1/3 lg:py-0 pt-4" id="episodes-player-mixed">
-                        <bananarama-episode title="2019 Bananarama Episode 1" filename="media/03_Bananarama_Podcast_Episode_03_2019.mp3"></bananarama-episode>
+                        <bananarama-episode :title="episodes.mixed[0].title" :filename="episodes.mixed[0].file"></bananarama-episode>
                     </div>
                 </div>
             </div>
@@ -118,17 +86,17 @@
                 </div>
                 <div class="lg:flex bg-white shadow-lg mt-4">
                     <div class="lg:w-2/3 lg:pr-4 py-2 font-mono text-sm px-8 py-6 ">
-                        <p class="border-b border-gray-400 border-dashed py-2 flex justify-between">
-                            <a class="episodes-open-link block cursor-pointer redraft-episode-link active-episode text-green-700" data-listname="redraft" data-title="2019 Redraft Episode 1" data-filename="media/07_Redraft_Podcast_Episode_1.mp3" data-playerid="episodes-player-redrafr">
-                               1. 2019 Bananarama Redraft Episode 1 (23.11.2019)
+                        <p class="border-b border-gray-400 border-dashed py-2 flex justify-between" v-for="episode in episodes.redraft">
+                            <a class="episodes-open-link block cursor-pointer redraft-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="redraft" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-redraft">
+                                {{ episode.title + ' (' + episode.date +')' }}
                             </a>
-                            <a href='media/07_Redraft_Podcast_Episode_1.mp3' download='07_Redraft_Podcast_Episode_1.mp3'>
+                            <a :href="episode.file + '.mp3'" :download="episode.title + '.mp3'">
                                 <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
                             </a>
                         </p>
                     </div>
                     <div class="lg:w-1/3 lg:py-0 pt-4" id ="episodes-player-redraft">
-                        <bananarama-episode title="2019 Bananarama Redraft Episode 1" filename="media/07_Redraft_Podcast_Episode_1.mp3"></bananarama-episode>
+                        <bananarama-episode :title="episodes.redraft[0].title" :filename="episodes.redraft[0].file"></bananarama-episode>
                     </div>
                 </div>
             </div>
@@ -141,33 +109,17 @@
                 </div>
                 <div class="lg:flex bg-white shadow-lg mt-4">
                     <div class="lg:w-2/3 lg:pr-4 py-2 font-mono text-sm px-8 py-6">
-                        <p class="border-b border-gray-400 border-dashed py-2 flex justify-between">
-                            <a class="episodes-open-link block cursor-pointer dynasty-episode-link active-episode" data-listname="dynasty" data-title="2019 Bananarama Dynasty Episode 1" data-filename="media/01_Dynasty_Podcast_Episode_01_2019.mp3" data-playerid="episodes-player-dynasty">
-                                1. 2019 Bananarama Dynasty Episode 1
+                        <p class="border-b border-gray-400 border-dashed py-2 flex justify-between" v-for="episode in episodes.dynasty">
+                            <a class="episodes-open-link block cursor-pointer dynasty-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="dynasty" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-dynasty">
+                                {{ episode.title + ' (' + episode.date +')' }}
                             </a>
-                            <a href='media/01_Dynasty_Podcast_Episode_01_2019.mp3' download='01_Dynasty_Podcast_Episode_01_2019.mp3'>
+                            <a :href="episode.file + '.mp3'" :download="episode.title + '.mp3'">
                                 <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
                             </a>
-                        </p>
-                        <p class="border-b border-gray-400 border-dashed py-2 flex justify-between">
-                            <a class="episodes-open-link block cursor-pointer dynasty-episode-link" data-listname="dynasty" data-title="2019 Bananarama Dynasty Episode 2" data-filename="media/02_Dynasty_Podcast_Episode_02_2019.mp3" data-playerid="episodes-player-dynasty">
-                                2. 2019 Bananarama Dynasty Episode 2
-                            </a>
-                            <a href='media/02_Dynasty_Podcast_Episode_02_2019.mp3' download='02_Dynasty_Podcast_Episode_02_2019.mp3'>
-                                <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
-                            </a>
-                        </p>
-                        <p class="border-gray-400 py-2 flex justify-between">
-                            <a class="episodes-open-link block cursor-pointer dynasty-episode-link" data-listname="dynasty" data-title="2019 Bananarama Dynasty Episode 3" data-filename="media/07_Dynasty_Podcast_Episode_3.mp3" data-playerid="episodes-player-dynasty">
-                                3. 2019 Bananarama Dynasty Episode 3 (23.11.2019)
-                            </a>
-                            <a href='media/07_Dynasty_Podcast_Episode_3.mp3' download='07_Dynasty_Podcast_Episode_3.mp3'>
-                                <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
-                            </a>
-                        </p>
+                        </p> 
                     </div>
                     <div class="lg:w-1/3 lg:py-0 pt-4" id ="episodes-player-dynasty">
-                        <bananarama-episode title="2019 Bananarama Dynasty Episode 1" filename="media/01_Dynasty_Podcast_Episode_01_2019.mp3"></bananarama-episode>
+                        <bananarama-episode :title="episodes.dynasty[0].title" :filename="episodes.dynasty[0].file"></bananarama-episode>
                     </div>
                 </div>
             </div>
@@ -178,12 +130,11 @@
                         Hier findet ihr wichtige Ankündigungen für die Bananarama Ligen.
                     </p>
                 </div>
-                <div class="bg-white shadow-lg px-8 py-6 mt-4">
+                <div class="bg-white shadow-lg px-8 py-6 mt-4" v-for="item in news.slice(0,3)">
                     <div class="py-2">
-                        <h3 class="font-semibold flex items-center"><span>Neue Website für den Podcast </span> <span class="ml-1 text-gray-500 font-light text-sm leading-none">- 29.11.2019</span></h3>
-                        <p class="mt-2">Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt. <a href="https://superkicker31.github.io/bananarama/" class="text-green-700 hover:underline">Die neue Bananarama Podcast Website!</a></p>
+                        <h3 class="font-semibold flex items-center"><span>{{ item.title }}</span> <span class="ml-1 text-gray-500 font-light text-sm leading-none"> - {{ item.date }}</span></h3>
+                        <p class="mt-2">{{ item.text }} <a :href="item.link" class="text-green-700 hover:underline">Hier geht's lang</a></p>
                     </div>
-                     
                 </div>
             </div>
         </div>

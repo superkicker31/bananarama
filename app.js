@@ -6,7 +6,98 @@ Vue.component('bananarama-episode', {
 var app = new Vue({
     el: '#app',
     data: {
-      message: 'Hello Vue!'
+      message: 'Hello Vue!',
+      news: [
+        {
+          title: 'Neue Website für den Podcast',
+          text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt. Die neue Bananarama Podcast Website!',
+          date: '29.11.2019',
+          link: 'https://superkicker31.github.io/bananarama',
+          linkText: "Die neue Bananarama Podcast Webseite"
+        }
+      ],
+      episodes: {
+        fresh: [
+          {
+            title: "2019 Redraft Episode 2",
+            date: "01.12.2019",
+            file: "media/08_Redraft_Podcast_Episode_2",
+            isActive: true
+          },
+          {
+            title: "2019 Dynasty Episode 4",
+            date: "01.12.2019",
+            file: "media/09_Dynasty_Podcast_Episode_4",
+            isActive: false
+          }
+        ],
+        mixed: [
+          {
+            title: "2019 Mixed Episode 1",
+            date: "04.09.2019",
+            file: "media/03_Bananarama_Podcast_Episode_03_2019",
+            isActive: true
+          },
+          {
+            title: "2019 Mixed Episode 2",
+            date: "27.09.2019",
+            file: "media/04_Bananarama_Podcast_Episode_04_2019",
+            isActive: false
+          },
+          {
+            title: "2019 Mixed Episode 3",
+            date: "06.10.2019",
+            file: "media/05_Bananarama_Podcast_Episode_05_2019",
+            isActive: false
+          },
+          {
+            title: "2019 Mixed Episode 4",
+            date: "10.10.2019",
+            file: "media/06_Bananarama_Podcast_Episode_06_2019",
+            isActive: false
+          }
+        ],
+        redraft: [
+          {
+            title: "2019 Redraft Episode 1",
+            date: "22.11.2019",
+            file: "media/07_Redraft_Podcast_Episode_1",
+            isActive: true
+          },
+          {
+            title: "2019 Redraft Episode 2",
+            date: "01.12.2019",
+            file: "media/08_Redraft_Podcast_Episode_2",
+            isActive: false
+          },
+        ],
+        dynasty: [
+          {
+            title: "2019 Dynasty Episode 1",
+            date: "16.08.2019",
+            file: "media/01_Dynasty_Podcast_Episode_01_2019",
+            isActive: true
+          },
+          {
+            title: "2019 Dynasty Episode 2",
+            date: "04.09.2019",
+            file: "media/02_Dynasty_Podcast_Episode_02_2019",
+            isActive: false
+          },
+          {
+            title: "2019 Dynasty Episode 3",
+            date: "22.11.2019",
+            file: "media/07_Dynasty_Podcast_Episode_3",
+            isActive: false
+          },
+          {
+            title: "2019 Dynasty Episode 4",
+            date: "01.12.2019",
+            file: "media/09_Dynasty_Podcast_Episode_4",
+            isActive: false
+          },
+        ]
+      }
     }
   })
 
