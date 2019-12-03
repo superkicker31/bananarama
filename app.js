@@ -10,7 +10,7 @@ var app = new Vue({
       news: [
         {
           title: 'Neue Website für den Podcast',
-          text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt. Die neue Bananarama Podcast Website!',
+          text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
           date: '29.11.2019',
           link: 'https://superkicker31.github.io/bananarama',
           linkText: "Die neue Bananarama Podcast Webseite"
@@ -97,7 +97,14 @@ var app = new Vue({
             isActive: false
           },
         ]
-      }
+      },
+      reviews: [
+        {
+          text: 'Zwei Flachzangen reden über die tollste Beschäftigung für Footballfans. Yes, please.',
+          image: 'img/marvin.jpg',
+          name: 'Marvin E., langjähriger Bananarama-Hörer'
+        }
+      ]
     }
   })
 
