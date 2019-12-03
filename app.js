@@ -6,7 +6,33 @@ Vue.component('bananarama-episode', {
 var app = new Vue({
     el: '#app',
     data: {
-      message: 'Hello Vue!',
+      menu: [
+          {
+            link: "#fresh-episodes-section",
+            linkText: "Fresh",
+            classList: " md:-ml-4"
+          },
+          {
+            link: "#mixed-episodes-section",
+            linkText: "Mixed",
+            classList: ""
+          },
+          {
+            link: "#redraft-episodes-section",
+            linkText: "Redraft",
+            classList: ""
+          },
+          {
+            link: "#dynasty-episodes-section",
+            linkText: "Dynasty",
+            classList: ""
+          },
+          {
+            link: "#announcements-section",
+            linkText: "Announcements",
+            classList: ""
+          }
+      ],
       news: [
         {
           title: 'Neue Website für den Podcast',
