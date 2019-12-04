@@ -135,7 +135,6 @@ var app = new Vue({
     },
     methods: {
       reviewCounterUp: function () {
-        console.log('asjkhas');
         this.reviewCounter = this.reviewCounter++;
       }
     }
