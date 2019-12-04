@@ -35,7 +35,7 @@
                     Hier findet Ihr die aktuellen Episoden des Bananarama Podcasts.
                 </p>
                 <div class="lg:flex bg-white shadow-lg mt-4">
-                    <div class="lg:w-2/3 lg:pr-4 py-6 px-8">
+                    <div class="lg:w-2/3 py-6 px-8">
                         <div class="font-mono text-sm">
                             <p class="border-b border-gray-400 border-dashed py-2 flex justify-between" v-for="episode in episodes.fresh">
                                 <a class="episodes-open-link block cursor-pointer fresh-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="fresh" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-fresh">
@@ -58,7 +58,7 @@
                     Hier findet Ihr die Episoden des Bananarama Podcasts, bei denen wir über beide Ligen gesprochen haben.
                 </p>
                 <div class="lg:flex bg-white shadow-lg mt-4">
-                    <div class="lg:w-2/3 lg:pr-4 py-2 px-8 py-6">
+                    <div class="lg:w-2/3 px-8 py-6">
                         <div class="font-mono text-sm">
                             <p class="border-b border-gray-400 border-dashed py-2 flex justify-between" v-for="episode in episodes.mixed">
                                 <a class="episodes-open-link block cursor-pointer mixed-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="mixed" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-mixed">
@@ -83,7 +83,7 @@
                     </p>
                 </div>
                 <div class="lg:flex bg-white shadow-lg mt-4">
-                    <div class="lg:w-2/3 lg:pr-4 py-2 font-mono text-sm px-8 py-6 ">
+                    <div class="lg:w-2/3 font-mono text-sm px-8 py-6 ">
                         <p class="border-b border-gray-400 border-dashed py-2 flex justify-between" v-for="episode in episodes.redraft">
                             <a class="episodes-open-link block cursor-pointer redraft-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="redraft" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-redraft">
                                 {{ episode.title + ' (' + episode.date +')' }}
@@ -106,7 +106,7 @@
                     </p>
                 </div>
                 <div class="lg:flex bg-white shadow-lg mt-4">
-                    <div class="lg:w-2/3 lg:pr-4 py-2 font-mono text-sm px-8 py-6">
+                    <div class="lg:w-2/3 font-mono text-sm px-8 py-6">
                         <p class="border-b border-gray-400 border-dashed py-2 flex justify-between" v-for="episode in episodes.dynasty">
                             <a class="episodes-open-link block cursor-pointer dynasty-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="dynasty" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-dynasty">
                                 {{ episode.title + ' (' + episode.date +')' }}
