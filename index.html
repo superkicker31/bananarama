@@ -15,7 +15,7 @@
         <header class="w-full header text-gray-200 fixed shadow-primary z-30" id="header">
             <div class="h-full w-full header-bg-overlay">
                 <div class="md:text-6xl text-3xl uppercase tracking-wider flex justify-center font-semibold text-green-700 items-center h-64" id="header-title"><span id="header-title-text">Bananarama Podcast</span></div>
-                <div class="md:flex w-full content-container lg:mx-auto mx-8 hidden uppercase tracking-wide font-normal">
+                <div class="md:flex w-full content-container lg:mx-auto mx-8 hidden uppercase tracking-wide font-normal text-xl">
                     <span v-for="item in menu">
                         <a :href="item.link" class="p-4 mr-4 hover:border-green-700 border-b-4 border-transparent block"><span :class="item.classList">{{ item.linkText }}<span></span></a>
                     </span>
@@ -41,7 +41,7 @@
                                 <a class="episodes-open-link block cursor-pointer fresh-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="fresh" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-fresh">
                                    {{ episode.title + ' (' + episode.date +')' }}
                                 </a>
-                                <a :href="episode.file + '.mp3'" :download="episode.title + '.mp3'">
+                                <a :href="episode.file" :download="episode.title">
                                     <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
                                 </a>
                             </p>
@@ -64,7 +64,7 @@
                                 <a class="episodes-open-link block cursor-pointer mixed-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="mixed" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-mixed">
                                     {{ episode.title + ' (' + episode.date +')' }}
                                 </a>
-                                <a :href="episode.file + '.mp3'" :download="episode.title + '.mp3'">
+                                <a :href="episode.file" :download="episode.title + '.mp3'">
                                     <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
                                 </a>
                             </p>
@@ -88,7 +88,7 @@
                             <a class="episodes-open-link block cursor-pointer redraft-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="redraft" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-redraft">
                                 {{ episode.title + ' (' + episode.date +')' }}
                             </a>
-                            <a :href="episode.file + '.mp3'" :download="episode.title + '.mp3'">
+                            <a :href="episode.file" :download="episode.title + '.mp3'">
                                 <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
                             </a>
                         </p>
@@ -111,7 +111,7 @@
                             <a class="episodes-open-link block cursor-pointer dynasty-episode-link" v-bind:class="{ 'active-episode': episode.isActive }" data-listname="dynasty" :data-title="episode.title" :data-filename="episode.file" data-playerid="episodes-player-dynasty">
                                 {{ episode.title + ' (' + episode.date +')' }}
                             </a>
-                            <a :href="episode.file + '.mp3'" :download="episode.title + '.mp3'">
+                            <a :href="episode.file" :download="episode.title + '.mp3'">
                                 <i class="text-gray-400 fas fa-cloud-download-alt hover:text-green-700"></i>
                             </a>
                         </p> 
@@ -123,7 +123,7 @@
             </div>
             <div id="announcements-section" class="pt-24">
                 <div>
-                    <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#announcements-section" class="flex"><span class="w-4">#</span><span class="text-gray-700">Ankündigungen</span> </a><p>
+                    <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#announcements-section" class="flex"><span class="w-4">#</span><span class="text-gray-700">Announcements</span> </a><p>
                     <p class="mt-4">
                         Hier findet ihr wichtige Ankündigungen für die Bananarama Ligen.
                     </p>
@@ -139,25 +139,25 @@
         <section class="bg-gray-300 mt-12" id="feedback-section">
             <div class="content-container mt-4 px-4 py-24 lg:mx-auto mx-8">
                 <div class="flex md:flex-row justify-center items-center">
-                        <div class="w-3/5 pr-8">
-                            <div class="flex items-center justify-start font-serif">
-                                <span class="text-6xl hidden md:block font-serif leading-none">„</span>
-                                <div class="md:px-4 italic">
-                                    <span>Zwei Flachzangen reden über die tollste Beschäftigung für Footballfans. Yes, please.</span>
-                                </div>
-                                <span class="text-6xl hidden md:block leading-none">“</span>
+                    <div class="w-3/5 pr-8">
+                        <div class="flex items-center justify-start font-serif">
+                            <span class="text-6xl hidden md:block font-serif leading-none">„</span>
+                            <div class="md:px-4 italic">
+                                <span>{{ reviews[reviewCounter].text }}</span>
                             </div>
+                            <span class="text-6xl hidden md:block leading-none">“</span>
                         </div>
-                        <div class="md:w-1/5 w-2/5">
-                            <img src="img/marvin.jpg" alt="" class="rounded-full lg:w-32 w-24 shadow-primary my-4">
-                        </div>
+                    </div>
+                    <div class="md:w-1/5 w-2/5">
+                        <img :src="reviews[reviewCounter].image" alt="" class="rounded-full lg:w-32 w-24 shadow-primary my-4">
+                    </div>
                 </div>
                 <div class="text-xs text-gray-500 font-light mx-auto mt-4 md:w-4/5">
-                        Marvin E., langjähriger Bananarama-Hörer
+                    {{ reviews[reviewCounter].name }}
                 </div>
             </div>  
         </section> 
-        <footer class="bg-gray-700 text-gray-200 py-12">
+        <footer class="bg-gray-800 text-gray-200 py-12">
             <div class="content-container lg:mx-auto mx-8">
                 <div class="flex">
                     <div class="w-1/3">
