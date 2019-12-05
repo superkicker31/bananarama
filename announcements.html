@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,42 +15,45 @@
             <div class="h-full w-full header-bg-overlay">
                 <div class="md:text-6xl text-2xl uppercase tracking-wider flex justify-center font-semibold text-green-700 items-center h-64" id="header-title"><span id="header-title-text">Bananarama Ankündigungen</span></div>
                 <div class="md:flex w-full content-container lg:mx-auto mx-8 uppercase tracking-wide font-normal text-xl">
-                    <a href="/" class="p-4 mr-4 hover:border-green-700 border-b-4 border-transparent block w-1/4"><span class="">Home<span></span></a>
+                    <a href="/bananarama" class="p-4 mr-4 hover:border-green-700 border-b-4 border-transparent block w-1/4"><span class="">Home<span></span></a>
                 </div>
             </div>
         </header>
-        <section class="content-container lg:mx-auto py-64 mx-8">
+        <section class="py-64">
             <div id="announcements-section" class="pt-40">
-                <div>
+                <div class="content-container lg:mx-auto mx-8">
                     <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#announcements-section" class="flex"><span class="w-4">#</span><span class="text-gray-700">Announcements</span> </a><p>
                     <p class="mt-4">
                         Hier findet Ihr wichtige Ankündigungen für die Bananarama Ligen, den Podcast und alles andere was euch vermutlich nicht interessiert.
                     </p>
                 </div>
-                <div class="py-4 flex items-center">
-                    <span class="text-sm mr-4" >Filtern nach: </span>
-                    <button class="text-sm rounded-full px-4 py-1 my-1 mr-2 tag allgemein focus:outline-none focus:border" v-on:click="filterByTag('allgemein')">allgemein</button>
-                    <button class="text-sm rounded-full px-4 py-1 my-1 mr-2 tag dynasty focus:outline-none" v-on:click="filterByTag('dynasty')">dynasty</button>
-                    <button class="text-sm rounded-full px-4 py-1 my-1 mr-2 tag redraft focus:outline-none" v-on:click="filterByTag('redraft')">redraft</button>
-                    <button class="text-sm rounded-full px-4 pr-1 py-1 my-1 mr-2 tag all text-gray-900 bg-gray-300 focus:outline-none flex items-center" v-on:click="filterByTag('news-item')">alle <span class="fas fa-times mx-2 text-gray-700"></span> </button>
-
-                </div>
-                <article class="bg-white shadow-lg px-8 py-6 mt-4 news-item allgemein" v-for="item in news" :class="item.type">
-                    <div class="py-2">
-                        <div class="flex justify-between">
-                            <div>
-                                <h3 class="font-semibold sm:flex items-center"><span>{{ item.title }}</span> <span class="ml-1 text-gray-500 font-light text-sm leading-none"> - {{ item.date }}</span></h3>
-                            </div>
-                            <div class="flex">
-                                <span v-for="type in item.types">
-                                    <span class="text-sm rounded-full md:px-4 px-2 md:py-1 mr-2 tag" :class="type">
-                                            <span class="md:inline-block hidden">{{ type }}</span>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                        <p class="mt-2">{{ item.text }} <a :href="item.link" class="text-green-700 hover:underline">{{ item.linkText }}</a></p>
+                <div class="bg-gray-200 mt-4">
+                    <div class="content-container lg:mx-auto mx-8 py-4 flex items-center justify-between">
+                        <button class="text-sm rounded-full px-4 py-1 my-1 mr-2 tag allgemein focus:outline-none filter-button border-green-700" v-on:click="filterByTag('allgemein')" id="filter-button-allgemein">allgemein</button>
+                        <button class="text-sm rounded-full px-4 py-1 my-1 mr-2 tag dynasty focus:outline-none filter-button border-blue-700" v-on:click="filterByTag('dynasty')" id="filter-button-dynasty">dynasty</button>
+                        <button class="text-sm rounded-full px-4 py-1 my-1 mr-2 tag redraft focus:outline-none filter-button border-yellow-700" v-on:click="filterByTag('redraft')" id="filter-button-redraft">redraft</button>
+                        <button class="text-sm rounded-full px-4 py-1 my-1 mr-2 tag podcast focus:outline-none filter-button border-purple-700" v-on:click="filterByTag('podcast')" id="filter-button-podcast">podcast</button>
+                        <button class="text-sm rounded-full px-4 pr-1 py-1 my-1 mr-2 tag all text-gray-900 bg-gray-300 focus:outline-none flex items-center filter-button border-2 border-gray-500" v-on:click="filterByTag('news-item')" id="filter-button-news-item">alle <span class="fas fa-times mx-2 text-gray-700"></span> </button>
                     </div>
+                </div>
+                <div class="content-container lg:mx-auto mx-8 py-4 ">
+                    <article class="bg-white shadow-lg px-8 py-6 mt-4 news-item" v-for="item in news" :class="item.types.join(' ')">
+                        <div class="py-2">
+                            <div class="flex justify-between">
+                                <div>
+                                    <h3 class="font-semibold sm:flex items-center"><span>{{ item.title }}</span> <span class="ml-1 text-gray-500 font-light text-sm leading-none"> - {{ item.date }}</span></h3>
+                                </div>
+                                <div class="flex">
+                                    <span v-for="type in item.types">
+                                        <span class="text-sm rounded-full md:px-4 px-2 md:py-1 mr-2 tag" :class="type">
+                                                <span class="md:inline-block hidden">{{ type }}</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="mt-2">{{ item.text }} <a :href="item.link" class="text-green-700 hover:underline">{{ item.linkText }}</a></p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>

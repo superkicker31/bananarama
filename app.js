@@ -37,7 +37,7 @@ var app = new Vue({
         {
           title: 'Neue Website für den Podcast',
           types: [
-            'allgemein'
+            'allgemein', 'podcast'
           ],
           text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
           date: '29.11.2019',
@@ -143,6 +143,16 @@ var app = new Vue({
       },
       filterByTag: function (tag) {
         const articles = document.getElementsByClassName('news-item');
+        const buttons = document.getElementsByClassName('filter-button');
+        document.getElementById('filter-button-' + tag).classList.add('border-2')
+
+        for (let button of buttons) {
+          if (button.id == 'filter-button-' + tag) {
+            button.classList.add('border-2');
+          } else {
+            button.classList.remove('border-2');
+          }
+        }
 
         for (let element of articles) {
           if (element.classList.contains(tag)) {

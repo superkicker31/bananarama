@@ -11540,6 +11540,11 @@ html {
   color: #744210;
 }
 
+.tag.podcast {
+  background-color: #e9d8fd;
+  color: #44337a;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
