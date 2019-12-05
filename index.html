@@ -17,7 +17,10 @@
             <div class="lds-ripple"><div></div><div></div></div>
         </div>
     </div>
+    
     <div id="app" class="bg-gray-100 text-gray-700 font-light">
+        <a class="fixed hidden w-full h-full z-10 mobile-menu-overlay" id="mobile-menu-overlay" v-on:click="toggleMobileMenu">
+        </a>
         <header class="w-full header text-gray-200 fixed shadow-primary z-30" id="header">
             <div class="h-full header-bg-overlay block px-4" id="header-bg-overlay">
                 <div class="md:text-6xl text-2xl uppercase tracking-wider flex justify-center font-semibold text-green-700 items-center h-64" id="header-title"><span id="header-title-text">Bananarama Podcast</span></div>
@@ -27,7 +30,6 @@
                         <a @click="toggleMobileMenu" :href="item.link" class="md:px-4 py-4 md:mr-4 hover:border-green-700 border-b-4 border-transparent block text-right"><span :class="item.classList">{{ item.linkText }}<span></span></a>
                     </span>
                 </div>
-
             </div>
         </header>
         <div class="content-container lg:mx-auto pt-64 mx-8">

@@ -145,6 +145,7 @@ var app = new Vue({
         }
       ],
       reviewCounter: 0,
+      mobileMenuDisplayed: false,
       introText: "Im Bananarama Podcast begleitet der Host und allseits geliebte Comissioner Frank zusammen mit seinem treuen Helfer Alex die Bananarama Fantasy Football Ligen, getreu dem Motto: Sag was, egal was ... BANANARAMA!"
     },
     methods: {
@@ -171,17 +172,27 @@ var app = new Vue({
             element.classList.add('hidden');
           }
         }
-       },
-       toggleMobileMenu: function () {
-         const btn = document.getElementById('mobile-menu-link');
-         
-          const links = document.getElementsByClassName('menu-link');
+      },
+    
+      toggleMobileMenu: function () {
+        this.mobileMenuDisplayed = !this.mobileMenuDisplayed;
+        const btn = document.getElementById('mobile-menu-link'); 
+        const overlay = document.getElementById('mobile-menu-overlay'); 
+        const links = document.getElementsByClassName('menu-link');
+        const icon = btn.childNodes[0];
 
-          console.log(links);
-          for (let link of links) {
-            link.classList.toggle('hidden');
-          }
-       }
+        if (this.mobileMenuDisplayed) {
+          window.scrollTo(0,0);
+        }
+
+        icon.classList.toggle('fa-times');
+        icon.classList.toggle('fa-bars');
+
+        overlay.classList.toggle('hidden');
+        for (let link of links) {
+          link.classList.toggle('hidden');
+        }
+      }
     }
   })
 
@@ -234,6 +245,9 @@ function setEpisode() {
   audioPlayer.setAttribute('src', filename);
   playerText.innerHTML = title;
 }
+
+
+
 
 document.onreadystatechange = function () {
   var state = document.readyState
