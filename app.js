@@ -183,6 +183,9 @@ var app = new Vue({
 
         if (this.mobileMenuDisplayed) {
           window.scrollTo(0,0);
+        } else {
+          document.getElementById("header-title").style.display = "flex";
+
         }
 
         icon.classList.toggle('fa-times');
@@ -206,10 +209,6 @@ function scrollFunction() {
 
     } else {
       document.getElementById("header-title").style.height = "60px";
-      document.getElementById("header-bg-overlay").style.display = "flex";
-      document.getElementById("header-bg-overlay").style.justifyContent = "space-between";
-    
-
     }
   } else {
     document.getElementById("header-title-text").style.display = "flex";
