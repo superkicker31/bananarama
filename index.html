@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/banana.ico">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="feed.xml">
     <title>Bananarama Podcast - Home</title>
 </head>
 <body>
     <div id="app" class="bg-gray-100 text-gray-700 font-light">
         <header class="w-full header text-gray-200 fixed shadow-primary z-30" id="header">
             <div class="h-full w-full header-bg-overlay">
-                <div class="md:text-6xl text-3xl uppercase tracking-wider flex justify-center font-semibold text-green-700 items-center h-64" id="header-title"><span id="header-title-text">Bananarama Podcast</span></div>
+                <div class="md:text-6xl text-2xl uppercase tracking-wider flex justify-center font-semibold text-green-700 items-center h-64" id="header-title"><span id="header-title-text">Bananarama Podcast</span></div>
                 <div class="md:flex w-full content-container lg:mx-auto mx-8 hidden uppercase tracking-wide font-normal text-xl">
                     <span v-for="item in menu">
                         <a :href="item.link" class="p-4 mr-4 hover:border-green-700 border-b-4 border-transparent block"><span :class="item.classList">{{ item.linkText }}<span></span></a>
