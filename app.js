@@ -35,6 +35,16 @@ var app = new Vue({
       ],
       news: [
         {
+          title: 'Test News',
+          types: [
+            'redraft'
+          ],
+          text: 'Lorem ipsum',
+          date: '05.12.2019',
+          link: '',
+          linkText: ''
+        },
+        {
           title: 'Neue Website für den Podcast',
           types: [
             'allgemein', 'podcast'
@@ -161,6 +171,16 @@ var app = new Vue({
             element.classList.add('hidden');
           }
         }
+       },
+       toggleMobileMenu: function () {
+         const btn = document.getElementById('mobile-menu-link');
+         
+          const links = document.getElementsByClassName('menu-link');
+
+          console.log(links);
+          for (let link of links) {
+            link.classList.toggle('hidden');
+          }
        }
     }
   })
@@ -175,10 +195,16 @@ function scrollFunction() {
 
     } else {
       document.getElementById("header-title").style.height = "60px";
+      document.getElementById("header-bg-overlay").style.display = "flex";
+      document.getElementById("header-bg-overlay").style.justifyContent = "space-between";
+    
+
     }
   } else {
     document.getElementById("header-title-text").style.display = "flex";
     document.getElementById("header-title").style.height = "256px";
+    document.getElementById("header-bg-overlay").style.display = "block";
+
   }
 }
 
