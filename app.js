@@ -131,7 +131,8 @@ var app = new Vue({
           name: 'Marvin E., langjähriger Bananarama-Hörer'
         }
       ],
-      reviewCounter: 0
+      reviewCounter: 0,
+      introText: "Im Bananarama Podcast begleitet der Host und allseits geliebte Comissioner Frank zusammen mit seinem treuen Helfer Alex die Bananarama Fantasy Football Ligen, getreu dem Motto: Sag was, egal was ... <span class='uppercase font-semibold text-green-700'>Bananarama</span>!"
     },
     methods: {
       reviewCounterUp: function () {
