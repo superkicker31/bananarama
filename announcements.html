@@ -28,7 +28,15 @@
                         Hier findet Ihr wichtige Ankündigungen für die Bananarama Ligen, den Podcast und alles andere was euch vermutlich nicht interessiert.
                     </p>
                 </div>
-                <article class="bg-white shadow-lg px-8 py-6 mt-4" v-for="item in news">
+                <div class="py-4 flex items-center">
+                    <span class="text-sm mr-4" >Filtern nach: </span>
+                    <button class="text-sm rounded-full px-4 py-1 my-1 mr-2 tag allgemein focus:outline-none focus:border" v-on:click="filterByTag('allgemein')">allgemein</button>
+                    <button class="text-sm rounded-full px-4 py-1 my-1 mr-2 tag dynasty focus:outline-none" v-on:click="filterByTag('dynasty')">dynasty</button>
+                    <button class="text-sm rounded-full px-4 py-1 my-1 mr-2 tag redraft focus:outline-none" v-on:click="filterByTag('redraft')">redraft</button>
+                    <button class="text-sm rounded-full px-4 pr-1 py-1 my-1 mr-2 tag all text-gray-900 bg-gray-300 focus:outline-none flex items-center" v-on:click="filterByTag('news-item')">alle <span class="fas fa-times mx-2 text-gray-700"></span> </button>
+
+                </div>
+                <article class="bg-white shadow-lg px-8 py-6 mt-4 news-item allgemein" v-for="item in news" :class="item.type">
                     <div class="py-2">
                         <div class="flex justify-between">
                             <div>

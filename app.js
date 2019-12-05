@@ -140,7 +140,18 @@ var app = new Vue({
     methods: {
       reviewCounterUp: function () {
         this.reviewCounter = this.reviewCounter++;
-      }
+      },
+      filterByTag: function (tag) {
+        const articles = document.getElementsByClassName('news-item');
+
+        for (let element of articles) {
+          if (element.classList.contains(tag)) {
+            element.classList.remove('hidden');
+          } else {
+            element.classList.add('hidden');
+          }
+        }
+       }
     }
   })
 
