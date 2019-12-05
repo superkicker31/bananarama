@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,7 +131,18 @@
                 </div>
                 <div class="bg-white shadow-lg px-8 py-6 mt-4" v-for="item in news.slice(0,3)">
                     <div class="py-2">
-                        <h3 class="font-semibold flex items-center"><span>{{ item.title }}</span> <span class="ml-1 text-gray-500 font-light text-sm leading-none"> - {{ item.date }}</span></h3>
+                        <div class="flex justify-between">
+                            <div>
+                                <h3 class="font-semibold sm:flex items-center"><span>{{ item.title }}</span> <span class="ml-1 text-gray-500 font-light text-sm leading-none"> - {{ item.date }}</span></h3>
+                            </div>
+                            <div class="flex">
+                                <span v-for="type in item.types">
+                                    <span class="text-sm rounded-full md:px-4 px-2 md:py-1 mr-2 tag" :class="type">
+                                            <span class="md:inline-block hidden">{{ type }}</span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
                         <p class="mt-2">{{ item.text }} <a :href="item.link" class="text-green-700 hover:underline">{{ item.linkText }}</a></p>
                     </div>
                 </div>

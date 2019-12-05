@@ -36,6 +36,9 @@ var app = new Vue({
       news: [
         {
           title: 'Neue Website für den Podcast',
+          types: [
+            'allgemein'
+          ],
           text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
           date: '29.11.2019',
           link: 'https://superkicker31.github.io/bananarama',
@@ -132,7 +135,7 @@ var app = new Vue({
         }
       ],
       reviewCounter: 0,
-      introText: "Im Bananarama Podcast begleitet der Host und allseits geliebte Comissioner Frank zusammen mit seinem treuen Helfer Alex die Bananarama Fantasy Football Ligen, getreu dem Motto: Sag was, egal was ... <span class='uppercase font-semibold text-green-700'>Bananarama</span>!"
+      introText: "Im Bananarama Podcast begleitet der Host und allseits geliebte Comissioner Frank zusammen mit seinem treuen Helfer Alex die Bananarama Fantasy Football Ligen, getreu dem Motto: Sag was, egal was ... BANANARAMA!"
     },
     methods: {
       reviewCounterUp: function () {

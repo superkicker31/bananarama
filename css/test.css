@@ -106,3 +106,20 @@ html {
 .episode-header, .audiojs {
     text-shadow: 2px 2px 2px rgba(47, 133, 90, 0.226);
 }
+
+.tag {
+    @apply font-semibold;
+}
+
+.tag.allgemein {
+    @apply bg-green-200 text-green-900;
+}
+
+.tag.dynasty {
+    @apply bg-blue-200 text-blue-900;
+}
+
+
+.tag.redraft {
+    @apply bg-yellow-200 text-yellow-900;
+}
