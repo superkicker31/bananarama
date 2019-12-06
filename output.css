@@ -11545,7 +11545,7 @@ html {
   color: #44337a;
 }
 
-#load{
+#load {
   background-color: #a0bfae;
   width:100%;
   height:100%;
@@ -11611,7 +11611,11 @@ html {
 }
 
 .mobile-menu-overlay {
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.349);
+}
+
+.menu-link {
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
 }
 
 @media (min-width: 640px) {

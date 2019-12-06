@@ -24,10 +24,15 @@
         <header class="w-full header text-gray-200 fixed shadow-primary z-30" id="header">
             <div class="h-full header-bg-overlay block px-4" id="header-bg-overlay">
                 <div class="md:text-6xl text-2xl uppercase tracking-wider flex justify-center font-semibold text-green-700 items-center h-64" id="header-title"><span id="header-title-text">Bananarama Podcast</span></div>
-                <div class="md:flex content-container lg:mx-auto uppercase tracking-wide font-normal text-xl">
+                <div class="md:hidden content-container lg:mx-auto uppercase tracking-wide font-normal text-xl">
                     <a class="md:hidden flex justify-end py-4" v-on:click="toggleMobileMenu" id="mobile-menu-link"><i class="fas fa-bars text-2xl"></i></a>
                     <span v-for="item in menu" class="hidden md:inline-block menu-link">
                         <a @click="toggleMobileMenu" :href="item.link" class="md:px-4 py-4 md:mr-4 hover:border-green-700 border-b-4 border-transparent block text-right"><span :class="item.classList">{{ item.linkText }}<span></span></a>
+                    </span>
+                </div>
+                <div class="md:flex hidden content-container md:mx-auto uppercase tracking-wide font-normal text-xl">
+                    <span v-for="item in menu" class="hidden md:inline-block menu-link">
+                        <a :href="item.link" class="px-4 py-4 mr-4 hover:border-green-700 border-b-4 border-transparent block text-right"><span :class="item.classList">{{ item.linkText }}<span></span></a>
                     </span>
                 </div>
             </div>
