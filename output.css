@@ -14251,12 +14251,10 @@ html {
   text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
 }
 
-h1 {
-}
-
 h2 {
   font-size: 1.25rem;
   font-weight: 600;
+  color: #9eadbc;
 }
 
 h3 {
@@ -14264,13 +14262,24 @@ h3 {
   font-weight: 600;
 }
 
-h4 {
+.alle .filter-button.all {
+  border-color: #757b82;
 }
 
-h5 {
+.podcast .filter-button.podcast {
+  border-color: #44337a;
 }
 
-h6 {
+.redraft .filter-button.redraft {
+  border-color: #744210;
+}
+
+.dynasty .filter-button.dynasty {
+  border-color: #2a4365;
+}
+
+.allgemein .filter-button.allgemein {
+  border-color: #22543d;
 }
 
 @media (min-width: 640px) {

@@ -92,7 +92,9 @@ var app = new Vue({
     mobileMenuDisplayed: false,
     sleeperLeague: null,
     nflPlayers: null,
-    activeTag: 'all',
+    sleeperLeagueUsers: null,
+    sleeperTransactions: null,
+    activeTag: 'alle',
     introText: "Im Bananarama Podcast begleitet der Host und allseits geliebte Comissioner Frank zusammen mit seinem treuen Helfer Alex die Bananarama Fantasy Football Ligen, getreu dem Motto: Sag was, egal was ... BANANARAMA!"
   },
   mounted () {
@@ -102,9 +104,16 @@ var app = new Vue({
     axios
       .get('https://superkicker31.github.io/bananarama/js/nfl_players.json')
       .then(response => (this.nflPlayers = response))
+    axios
+      .get('https://api.sleeper.app/v1/league/518116516514529280/users')
+      .then(response => (this.sleeperLeagueUsers = response))
+    axios
+      .get('https://api.sleeper.app/v1/league/518116516514529280/transactions/1')
+      .then(response => (this.sleeperTransactions = response))
   },
   methods: {
     getAllActiveNewsItems: function () {
+      console.log(this.sleeperTransactions)
       var activeNews = [];
       for (var i = 0; i < this.news.length; i++) {
        if(this.itemHasActiveTag(this.news[i].types.join(' '))) {
@@ -120,6 +129,13 @@ var app = new Vue({
         } 
       }
       return false;
+    },
+    getSleeperName(ownerId) {
+      for (var user in this.sleeperLeagueUsers.data) {
+        if(this.sleeperLeagueUsers.data[user].user_id === ownerId) {
+          return this.sleeperLeagueUsers.data[user].display_name
+        }
+      }
     },
     setActiveTag(tag) {
       this.activeTag = tag;
@@ -148,7 +164,6 @@ var app = new Vue({
     },
     getPlayerNameById(playerNick) {
         var playerId = parseInt(playerNick.replace("p_nick_", ""), 10);
-        console.log(this.nflPlayers.data.data);
         return  this.nflPlayers.data.data[playerId].first_name + " " +  this.nflPlayers.data.data[playerId].last_name;
     },
     playerIsOnTheTradeBlock(playerNick) {
@@ -158,15 +173,13 @@ var app = new Vue({
       return false;
     },
     getPlayerNickWithoutOtb(playerNick) {
-      playerNick.replace("otb", "");
-      playerNick.replace("OTB", "");
-      playerNick.replace("Otb", "");
-      return playerNick;
+      var newPlayerNick = playerNick.replace("otb", "").replace("OTB", "").replace("Otb", "");
+      return newPlayerNick;
     },
     teamHasPlayersOtb(team){
       if (team.metadata != null) {
         for (var player in team.metadata) {
-          if(this.playerIsOnTheTradeBlock(player)) {
+          if(this.playerIsOnTheTradeBlock(team.metadata[player])) {
             return true
           }
         }
@@ -198,20 +211,15 @@ var app = new Vue({
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 50) {
-  if (window.innerWidth > 920) {
+  if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 50) {
     document.getElementById("header-title").style.height = "0";
     document.getElementById("header-title-text").style.display = "none";
-
   } else {
-    document.getElementById("header-title").style.height = "60px";
-  }
-} else {
-  document.getElementById("header-title-text").style.display = "flex";
-  document.getElementById("header-title").style.height = "256px";
-  document.getElementById("header-bg-overlay").style.display = "block";
+    document.getElementById("header-title-text").style.display = "flex";
+    document.getElementById("header-title").style.height = "256px";
+    document.getElementById("header-bg-overlay").style.display = "block";
 
-}
+  }
 }
 
 // Loader

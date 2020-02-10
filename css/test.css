@@ -105,21 +105,28 @@ html {
     text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
 }
 
-h1 {
-
-}
 h2 {
-    @apply text-xl font-semibold;
+    @apply text-xl font-semibold text-gray-500;
 }
 h3 {
     @apply text-lg font-semibold;
 }
-h4 {
 
+.alle .filter-button.all {
+    @apply border-gray-600;
 }
-h5 {
 
+.podcast .filter-button.podcast {
+    @apply border-purple-900;
 }
-h6 {
 
+.redraft .filter-button.redraft {
+    @apply border-yellow-900;
+}
+.dynasty .filter-button.dynasty {
+    @apply border-blue-900;
+}
+
+.allgemein .filter-button.allgemein {
+    @apply border-green-900;
 }
