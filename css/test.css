@@ -18,9 +18,10 @@ html {
     background-position: center center;
 }
 #header {
-    background: url('img/header-bg.jpg');
+    background: linear-gradient( #34407f, #2E3C8E);
     background-size: cover;
     background-position: center center;
+    text-shadow: 2px 2px #34407f;
 }
 #header-title {
     transition: all 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
@@ -29,83 +30,8 @@ html {
     transition: all 0.2s;
 }
 
-.audiojs .time , .audiojs .play-pause{
-    border: 0px solid black;
-}
-
-.audiojs {
-    background: rgba(47, 133, 90, 0.4);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom-right-radius: 0.25rem;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-}
-
-.audiojs .scrubber {
-    display: flex;
-    align-items: center;
-    background: rgba(0, 0, 0, 0);
-    border: 0px solid #000;
-    width: 100%;
-}
-
-.audiojs .scrubber .loaded {
-    height: 2px;
-    background: rgba(255,255,255,0.4);
-    top: 6px;
-}
-
-.audiojs .scrubber .progress {
-    top: 6px;
-    background: #fff;
-    height: 2px;
-}
-
-.episode-bg-overlay {
-    background: rgba(47, 133, 90, 0.4);
-}
-.header-bg-overlay {
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.active-episode {
-    font-weight: 600;
-    color: #2F855A;
-}
-
 .shadow-primary {
     box-shadow: 0 0 10px 0 rgba(47, 133, 90, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-.audiojs .time {
-    color: #fff;
-    font-size: 16px;
-    font-family: 'SFMono-Regular', 'Menlo';
-    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
-}
-
-.audiojs .play-pause {
-    min-width: 60px;
-}
-
-.audiojs .play {
-    background-image: url('img/play.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center;
-    height: 32px;
-}
-.audiojs .pause {
-    background-image: url('img/pause.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center;
-    height: 32px;
-}
-
-.episode-header, .audiojs {
-    text-shadow: 2px 2px 2px rgba(47, 133, 90, 0.226);
 }
 
 .tag {
@@ -178,15 +104,3 @@ html {
 .menu-link {
     text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
 }
-
-
-@media @media (max-width: 920px) { 
-    .audiojs {
-        border-bottom-left-radius: 0.25rem;
-    }
-
-    .episode-header {
-        border-bottom-left-radius: 0.25rem;
-        border-bottom-right-radius: 0.25rem;
-    }
- }

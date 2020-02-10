@@ -1,29 +1,14 @@
-Vue.component('bananarama-episode', {
-  props: ['title', 'filename'],
-  template: '<div class="flex flex-col episode-header md:rounded-r w-full"><span class="h-full text-gray-200 md:text-3xl text-2xl episode-bg-overlay flex items-end p-4 md:rounded-r rounded-b">{{ title }}</span><audio class="audio-player" v-bind:src="filename" preload="none" /></div>'
-});
-
 var app = new Vue({
     el: '#app',
     data: {
       menu: [
           {
-            link: "#fresh-episodes-section",
-            linkText: "Fresh",
-            classList: " md:-ml-4"
-          },
-          {
-            link: "#mixed-episodes-section",
-            linkText: "Mixed",
-            classList: ""
-          },
-          {
-            link: "#redraft-episodes-section",
+            link: "#redraft-section",
             linkText: "Redraft",
             classList: ""
           },
           {
-            link: "#dynasty-episodes-section",
+            link: "#dynasty-section",
             linkText: "Dynasty",
             classList: ""
           },
@@ -31,23 +16,18 @@ var app = new Vue({
             link: "#announcements-section",
             linkText: "Announcements",
             classList: ""
+          },
+          {
+            link: "#podcast-section",
+            linkText: "Podcast",
+            classList: " md:-ml-4"
           }
       ],
       news: [
         {
-          title: 'Test News',
+          title: 'Neue Website für die Liga',
           types: [
-            'redraft'
-          ],
-          text: 'Lorem ipsum',
-          date: '05.12.2019',
-          link: '',
-          linkText: ''
-        },
-        {
-          title: 'Neue Website für den Podcast',
-          types: [
-            'allgemein', 'podcast'
+            'allgemein'
           ],
           text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
           date: '29.11.2019',
@@ -144,19 +124,28 @@ var app = new Vue({
           name: 'Marvin E., langjähriger Bananarama-Hörer'
         }
       ],
-      reviewCounter: 0,
       mobileMenuDisplayed: false,
+      announcementsCounter: 3,
       introText: "Im Bananarama Podcast begleitet der Host und allseits geliebte Comissioner Frank zusammen mit seinem treuen Helfer Alex die Bananarama Fantasy Football Ligen, getreu dem Motto: Sag was, egal was ... BANANARAMA!"
     },
     methods: {
+      showThreeMoreAnnouncements: function () {
+        if ( this.news.length > this.announcementsCounter + 3 ) {
+          this.announcementsCounter =  this.announcementsCounter + 3;
+        } else {
+          this.announcementsCounter = this.news.length;
+        }
+      },
+      showDefaultAnnouncements: function () {
+        this.announcementsCounter = 3;
+      },
       reviewCounterUp: function () {
         this.reviewCounter = this.reviewCounter++;
       },
       filterByTag: function (tag) {
         const articles = document.getElementsByClassName('news-item');
         const buttons = document.getElementsByClassName('filter-button');
-        document.getElementById('filter-button-' + tag).classList.add('border-2')
-
+        
         for (let button of buttons) {
           if (button.id == 'filter-button-' + tag) {
             button.classList.add('border-2');
@@ -180,14 +169,11 @@ var app = new Vue({
         const overlay = document.getElementById('mobile-menu-overlay'); 
         const links = document.getElementsByClassName('menu-link');
         const icon = btn.childNodes[0];
-
         if (this.mobileMenuDisplayed) {
-          window.scrollTo(0,0);
+        window.scrollTo(0,0);
         } else {
-          document.getElementById("header-title").style.display = "flex";
-
+        document.getElementById("header-title").style.display = "flex";
         }
-
         icon.classList.toggle('fa-times');
         icon.classList.toggle('fa-bars');
 
@@ -218,36 +204,7 @@ function scrollFunction() {
   }
 }
 
-const episodeLinks = document.getElementsByClassName('episodes-open-link');
-
-for (let i = 0; i < episodeLinks.length; i++) {
-  episodeLinks[i].addEventListener('click', setEpisode);
-}
-
-function setEpisode() {
-  const title = this.dataset.title;
-  const filename = this.dataset.filename;
-  const playerid = this.dataset.playerid;
-  const listname = this.dataset.listname;
-
-  const player = document.querySelector('#' + playerid);
-  const playerText = player.querySelector('.episode-bg-overlay');
-  const audioPlayer = player.querySelector('.audio-player');
-
-  const otherLinks = document.getElementsByClassName(listname + '-episode-link');
-  
-  for (let i = 0; i< otherLinks.length; i++){
-    otherLinks[i].classList.remove('active-episode');
-  }
-  this.classList.add('active-episode');
-
-  audioPlayer.setAttribute('src', filename);
-  playerText.innerHTML = title;
-}
-
-
-
-
+// Loader
 document.onreadystatechange = function () {
   var state = document.readyState
   if (state == 'interactive') {

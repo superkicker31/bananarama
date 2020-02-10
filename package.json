@@ -1,8 +1,9 @@
 {
-  "dependencies": {
-    "hooper": "^0.3.4"
-  },
+  "name": "bananarama",
+  "private": true,
+  "dependencies": {},
   "devDependencies": {
-    "tailwindcss": "^1.1.4"
+    "tailwindcss": "^1.1.4",
+    "webpack-cli": "^3.3.10"
   }
 }
