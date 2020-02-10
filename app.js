@@ -77,10 +77,20 @@ var app = new Vue({
         name: 'Marvin E., langjähriger Bananarama-Hörer'
       }
     ],
+    players: null,
     announcementsCounter: 3,
     announcementsCollapsed: true,
     mobileMenuDisplayed: false,
+    sleeperLeague: null,
     introText: "Im Bananarama Podcast begleitet der Host und allseits geliebte Comissioner Frank zusammen mit seinem treuen Helfer Alex die Bananarama Fantasy Football Ligen, getreu dem Motto: Sag was, egal was ... BANANARAMA!"
+  },
+  mounted () {
+    axios
+      .get('https://api.sleeper.app/v1/league/518116516514529280/rosters')
+      .then(response => (this.sleeperLeague = response))
+    axios
+      .get('https://superkicker31.github.io/bananarama/js/nfl_players.json')
+      .then(response => (this.players = response))
   },
   methods: {
     showThreeMoreAnnouncements: function () {

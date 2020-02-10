@@ -70,7 +70,32 @@
                     </p>
                 </div>
                 <div class="">
-                   moar contents
+                    <h1> Tabelle </h1>
+                    <table>
+                        <tr>
+                            <th>Team name</th>
+                            <th>W</th>
+                            <th>L</th>
+                            <th>PF</th>
+                            <th>Waiver $</th>
+                        </tr>
+                        <tr v-for="team in sleeperLeague.data">
+                            <td>TBD</td>
+                            <td>{{ 0 +  team.settings.wins }}</td>
+                            <td>{{ 0 + team.settings.losses }}</td>
+                            <td>{{ 0 + team.settings.fpts }}</td>
+                            <td>{{ 1000 - team.settings.waiver_budget_used}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h1>Tradeblock</h1>
+                    <div v-for="team in sleeperLeague.data">
+                        {{ team.roster_id}}
+                        <p v-for="(player_nickname, player_id) in team.metadata" v-if="player_nickname === 'OTB'"> 
+                            {{ player_id }}: {{ player_nickname}}
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="bg-gray-300"> 
@@ -132,6 +157,7 @@
                 </p>
                 <div class="podcast-list">
                     <div>
+                        <p>{{nflPlayers}}</p>
                         <h2 class="mt-4">Neueste Episoden</h2>
                     </div>
                     <div class="">
@@ -178,7 +204,7 @@
                     </div>
                 </div>  
             </div>
-        </section> 
+        </section>         
         <footer class="bg-gray-800 text-gray-200 py-12">
             <div class="content-container lg:mx-auto mx-8">
                 <div class="flex">
@@ -187,11 +213,11 @@
                             Unsere Ligen
                         </p>
                         <div class="mt-4 flex">
-                            <span class="hover:text-green-600">
+                            <span class="hover:text-blue-200">
                                 <a target="_blank" href="https://sleeper.app/leagues/464902912561115136">Dynasty</a>
                             </span>
                             <span class="mx-2">|</span>
-                            <span class="hover:text-green-600">
+                            <span class="hover:text-blue-200">
                                 <a target="_blank" href="https://fantasy.nfl.com/league/3074665">Redraft</a>
                             </span>
                         </div>
@@ -200,6 +226,10 @@
             </div>
         </footer>
     </div>
+    <div>
+ 
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script  type="module" src="app.js" defer></script>
 </body>
