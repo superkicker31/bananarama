@@ -21,7 +21,7 @@
         <a class="fixed hidden w-full h-full z-10 mobile-menu-overlay" id="mobile-menu-overlay" v-on:click="toggleMobileMenu">
         </a>
         <header class="w-full header text-gray-200 fixed shadow-primary z-30" id="header">
-            <img src="/img/bananarama_transparent.png" class="xl:w-48 lg:w-32 w-24 fixed z-100"/>
+            <img src="img/bananarama_transparent.png" class="xl:w-48 lg:w-32 w-24 fixed z-100"/>
             <div class="h-full header-bg-overlay block px-4" id="header-bg-overlay">
                 <div class="lg:text-6xl md:text-4xl text-2xl tracking-wider flex justify-center font-semibold items-center h-64" id="header-title"><span id="header-title-text" class="text-center pt-1"> Bananarama Fantasy Football</span></div>
                 <div class="md:hidden content-container lg:mx-auto uppercase tracking-wide font-normal text-xl">
@@ -90,10 +90,10 @@
                 </div>
                 <div>
                     <h1>Tradeblock</h1>
-                    <div v-for="team in sleeperLeague.data">
+                    <div v-for="team in sleeperLeague.data" v-if="teamHasPlayersOtb(team)">
                         {{ team.roster_id}}
-                        <p v-for="(player_nickname, player_id) in team.metadata" v-if="player_nickname === 'OTB'"> 
-                            {{ player_id }}: {{ player_nickname}}
+                        <p v-for="(player_nickname, player_id) in team.metadata" v-if="playerIsOnTheTradeBlock(player_nickname)"> 
+                            {{ getPlayerNameById(player_id) }} {{ getPlayerNickWithoutOtb(player_nickname)}}
                         </p>
                     </div>
                 </div>
@@ -107,15 +107,15 @@
                     </p>
                     <div class="mt-4">
                         <div class="content-container lg:mx-auto mx-8 flex items-center justify-between flex-wrap">
-                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag allgemein focus:outline-none filter-button border-green-700" v-on:click="filterByTag('allgemein')" id="filter-button-allgemein">allgemein</button>
-                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag dynasty focus:outline-none filter-button border-blue-700" v-on:click="filterByTag('dynasty')" id="filter-button-dynasty">dynasty</button>
-                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag redraft focus:outline-none filter-button border-yellow-700" v-on:click="filterByTag('redraft')" id="filter-button-redraft">redraft</button>
-                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag podcast focus:outline-none filter-button border-purple-700" v-on:click="filterByTag('podcast')" id="filter-button-podcast">podcast</button>
-                            <button class="text-sm rounded-full px-4 pr-1 py-1 my-4 mr-2 tag all text-gray-900 bg-gray-300 focus:outline-none flex items-center filter-button border-2 border-gray-500" v-on:click="filterByTag('news-item')" id="filter-button-news-item">alle <span class="fas fa-times mx-2 text-gray-700"></span> </button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag allgemein focus:outline-none filter-button border-green-700 shadow-sm" @click="setActiveTag('allgemein')" id="filter-button-allgemein">allgemein</button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag dynasty focus:outline-none filter-button border-blue-700 shadow-sm" @click="setActiveTag('dynasty')" id="filter-button-dynasty">dynasty</button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag redraft focus:outline-none filter-button border-yellow-700 shadow-sm"  @click="setActiveTag('redraft')" id="filter-button-redraft">redraft</button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag podcast focus:outline-none filter-button border-purple-700 shadow-sm" @click="setActiveTag('podcast')" id="filter-button-podcast">podcast</button>
+                            <button class="text-sm rounded-full px-4 pr-1 py-1 my-4 mr-2 tag all text-gray-900 bg-gray-300 focus:outline-none flex items-center filter-button border-2 border-gray-500 shadow-sm"  @click="setActiveTag('alle')" id="filter-button-news-item">alle <span class="fas fa-times mx-2 text-gray-700"></span> </button>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white news-item shadow-lg px-8 py-6 mt-4 rounded" v-for="item in news.slice(0,announcementsCounter)" :class="item.types.join(' ')">
+                <div class="bg-white news-item shadow-lg px-8 py-6 mt-4 rounded" v-for="item in getAllActiveNewsItems().slice(0,announcementsCounter)" :class="item.types.join(' ')" v-if="itemHasActiveTag(item.types.join(' '))">
                     <div class="py-2">
                         <div class="flex justify-between">
                             <div>
@@ -134,9 +134,9 @@
                 </div>
                 <div>
                     <p class="my-2 text-sm text-gray-500">
-                        <div v-if="announcementsCounter < news.length" class="text-center">
+                        <div v-if="showMoreButton()" class="text-center">
                             <a @click="showThreeMoreAnnouncements" class="text-center text-gray-500 cursor-pointer">
-                                <i class="fas fa-angle-double-down"></i> Die nächsten <span class="font-semibold text-primary"> {{ Math.min(3, news.length - announcementsCounter) }} </span> anzeigen <i class="fas fa-angle-double-down"></i>
+                                <i class="fas fa-angle-double-down"></i> Die nächsten <span class="font-semibold text-primary"> {{ Math.min(3, getAllActiveNewsItems().length - announcementsCounter) }} </span> anzeigen <i class="fas fa-angle-double-down"></i>
                             </a>
                         </div>
                         <div v-if="!announcementsCollapsed" class="text-center">
@@ -157,7 +157,6 @@
                 </p>
                 <div class="podcast-list">
                     <div>
-                        <p>{{nflPlayers}}</p>
                         <h2 class="mt-4">Neueste Episoden</h2>
                     </div>
                     <div class="">

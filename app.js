@@ -10,7 +10,7 @@ var app = new Vue({
         {
           link: "#redraft-section",
           linkText: "Redraft",
-          classList: ""
+          classfList: ""
         },
         {
           link: "#dynasty-section",
@@ -39,7 +39,7 @@ var app = new Vue({
         link: 'https://superkicker31.github.io/bananarama',
         linkText: "Die neue Bananarama Podcast Webseite"
       },
-      {
+       {
         title: 'Neue Website für die Liga',
         types: [
           'allgemein'
@@ -52,7 +52,17 @@ var app = new Vue({
       {
         title: 'Neue Website für die Liga',
         types: [
-          'allgemein'
+          'dynasty'
+        ],
+        text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
+        date: '29.11.2019',
+        link: 'https://superkicker31.github.io/bananarama',
+        linkText: "Die neue Bananarama Podcast Webseite"
+      },
+      {
+        title: 'Neue Website für die Liga',
+        types: [
+          'allgemein', 'redraft'
         ],
         text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
         date: '29.11.2019',
@@ -77,11 +87,12 @@ var app = new Vue({
         name: 'Marvin E., langjähriger Bananarama-Hörer'
       }
     ],
-    players: null,
     announcementsCounter: 3,
     announcementsCollapsed: true,
     mobileMenuDisplayed: false,
     sleeperLeague: null,
+    nflPlayers: null,
+    activeTag: 'all',
     introText: "Im Bananarama Podcast begleitet der Host und allseits geliebte Comissioner Frank zusammen mit seinem treuen Helfer Alex die Bananarama Fantasy Football Ligen, getreu dem Motto: Sag was, egal was ... BANANARAMA!"
   },
   mounted () {
@@ -90,9 +101,29 @@ var app = new Vue({
       .then(response => (this.sleeperLeague = response))
     axios
       .get('https://superkicker31.github.io/bananarama/js/nfl_players.json')
-      .then(response => (this.players = response))
+      .then(response => (this.nflPlayers = response))
   },
   methods: {
+    getAllActiveNewsItems: function () {
+      var activeNews = [];
+      for (var i = 0; i < this.news.length; i++) {
+       if(this.itemHasActiveTag(this.news[i].types.join(' '))) {
+         activeNews.push(this.news[i]);
+       }
+      }
+      return activeNews;
+    },
+    itemHasActiveTag: function(tags) {
+      if (this.activeTag !== null) {
+        if (tags.includes(this.activeTag) || this.activeTag === "alle") {
+          return true;
+        } 
+      }
+      return false;
+    },
+    setActiveTag(tag) {
+      this.activeTag = tag;
+    },
     showThreeMoreAnnouncements: function () {
       if ( this.news.length > this.announcementsCounter + 3 ) {
         this.announcementsCounter =  this.announcementsCounter + 3;
@@ -108,25 +139,39 @@ var app = new Vue({
     reviewCounterUp: function () {
       this.reviewCounter = this.reviewCounter++;
     },
-    filterByTag: function (tag) {
-      const articles = document.getElementsByClassName('news-item');
-      const buttons = document.getElementsByClassName('filter-button');
-      
-      for (let button of buttons) {
-        if (button.id == 'filter-button-' + tag) {
-          button.classList.add('border-2');
-        } else {
-          button.classList.remove('border-2');
+    showMoreButton: function() {
+      var activeNews = this.getAllActiveNewsItems();
+      if(this.announcementsCounter < activeNews.length) {
+        return true;
+      }
+      return false;
+    },
+    getPlayerNameById(playerNick) {
+        var playerId = parseInt(playerNick.replace("p_nick_", ""), 10);
+        console.log(this.nflPlayers.data.data);
+        return  this.nflPlayers.data.data[playerId].first_name + " " +  this.nflPlayers.data.data[playerId].last_name;
+    },
+    playerIsOnTheTradeBlock(playerNick) {
+      if (playerNick.includes("OTB") || playerNick.includes("otb") || playerNick.includes("Otb")) {
+        return true;
+      }
+      return false;
+    },
+    getPlayerNickWithoutOtb(playerNick) {
+      playerNick.replace("otb", "");
+      playerNick.replace("OTB", "");
+      playerNick.replace("Otb", "");
+      return playerNick;
+    },
+    teamHasPlayersOtb(team){
+      if (team.metadata != null) {
+        for (var player in team.metadata) {
+          if(this.playerIsOnTheTradeBlock(player)) {
+            return true
+          }
         }
       }
-
-      for (let element of articles) {
-        if (element.classList.contains(tag)) {
-          element.classList.remove('hidden');
-        } else {
-          element.classList.add('hidden');
-        }
-      }
+      return false;
     },
     toggleMobileMenu: function () {
       this.mobileMenuDisplayed = !this.mobileMenuDisplayed;
