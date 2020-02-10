@@ -42,7 +42,7 @@
                 <div id="about-section" class="pb-24 pt-32 content-container lg:mx-auto mx-8">
                     <p class="text-xl -ml-4 uppercase font-semibold text-gray-500 tracking-wide"><a href="#about-section" class="flex"><span class="w-4">#</span><span class="text-gray-700">About</span></a></p>
                     <p class="mt-4">
-                        {{ introText }}
+                        {{ }}
                     </p>
                 </div>
             </div>
@@ -73,6 +73,7 @@
                    moar contents
                 </div>
             </div>
+            <div class="bg-gray-300"> 
             <div id="announcements-section" class="md:py-24 pt-32 content-container lg:mx-auto pt-64 mx-8">
                 <div>
                     <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#announcements-section" class="flex"><span class="w-4">#</span><span class="text-gray-700">Announcements</span> </a><p>
@@ -107,58 +108,76 @@
                     </div>
                 </div>
                 <div>
-                    <p class="my-2 text-sm text-gray-500"> 
-                        <a @click="showThreeMoreAnnouncements" class="block text-center cursor-pointer" :class="{hidden: announcementsCounter === news.length}">
-                            <i class="fas fa-angle-double-down"></i> Die nächsten 3 anzeigen <i class="fas fa-angle-double-down"></i>
-                        </a>
-                        <a @click="showDefaultAnnouncements" class="block text-center cursor-pointer" :class="{block: announcementsCounter === news.length, hidden: announcementsCounter < news.length}">
-                            <i class="fas fa-angle-double-up"></i> Einklappen <i class="fas fa-angle-double-up"></i>
-                        </a>
+                    <p class="my-2 text-sm text-gray-500">
+                        <div v-if="announcementsCounter < news.length" class="text-center">
+                            <a @click="showThreeMoreAnnouncements" class="text-center text-gray-500 cursor-pointer">
+                                <i class="fas fa-angle-double-down"></i> Die nächsten <span class="font-semibold text-primary"> {{ Math.min(3, news.length - announcementsCounter) }} </span> anzeigen <i class="fas fa-angle-double-down"></i>
+                            </a>
+                        </div>
+                        <div v-if="!announcementsCollapsed" class="text-center">
+                            <a @click="showDefaultAnnouncements" class="text-center text-gray-500 cursor-pointer">
+                                <i class="fas fa-angle-double-up"></i> Einklappen <i class="fas fa-angle-double-up"></i>
+                            </a>
+                        </div>
                     </p>
                 </div>
             </div>
         </div>
-        <section class="bg-gray-300 mt-12" id="feedback-section">
+    </div>
+        <section class="mt-12" id="feedback-section">
             <div id="podcast-section" class="md:py-24 pt-32 content-container lg:mx-auto pt-64 mx-8">
                 <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#podcast-section"><span class="w-4">#</span> <span class="text-gray-700">Podcast</span></a></p>
                 <p class="mt-4">
-                    Hier findet Ihr die aktuellen Episoden des Bananarama Podcasts.
+                    {{ introText }}
                 </p>
-                <div class="">
-                    <div class="glide episodes-slider">
-                        <div class="glide__track" data-glide-el="track">
-                            <ul class="glide__slides">
-                                <li class="glide__slide">Redraft</li>
-                                <li class="glide__slide">Dynasty</li>
-                                <li class="glide__slide">asdasda</li>
-                            </ul>
-                        </div>   
-                        <div class="glide__arrows" data-glide-el="controls">
-                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-                        </div>   
+                <div class="podcast-list">
+                    <div>
+                        <h2 class="mt-4">Neueste Episoden</h2>
+                    </div>
+                    <div class="">
+                        <div class="bg-white mt-4 px-8 py-6 border-l-4 border-primary">
+                            <h3 class="text-primary">Dynasty</h3>
+                            <div class="flex">
+                                <div>
+                                <iframe src="https://www.podomatic.com/embed/html5/episode/9605362?style=normal&amp;autoplay=false" allowfullscreen="true" allow="autoplay; fullscreen" style="width: 504px; height: 208px;"></iframe>    
+                                </div>
+                                <div>
+                                    <h4>Keleven</h4>
+                                    <p>
+                                        Lorem ipsum Text
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white mt-4 px-8 py-6 border-l-4 border-secondary">
+                            <h3 class="text-primary">Redraft</h3>
+                            <div>
+                                <iframe src="https://www.podomatic.com/embed/html5/episode/9605360?style=normal&amp;autoplay=false" allowfullscreen="true" allow="autoplay; fullscreen" style="width: 504px; height: 208px;"></iframe>  </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="content-container mt-4 px-4 py-24 lg:mx-auto mx-8">
-                <div class="flex md:flex-row justify-center items-center">
-                    <div class="w-3/5 pr-8">
-                        <div class="flex items-center justify-start font-serif">
-                            <span class="text-6xl hidden md:block font-serif leading-none">„</span>
-                            <div class="md:px-4 italic">
-                                <span>{{ reviews[0].text }}</span>
+            <div class="bg-gray-200">
+                <div class="content-container mt-4 px-4 py-24 lg:mx-auto mx-8">
+                    <div class="flex md:flex-row justify-center items-center">
+                        <div class="w-3/5 pr-8">
+                            <div class="flex items-center justify-start font-serif">
+                                <span class="text-6xl hidden md:block font-serif leading-none">„</span>
+                                <div class="md:px-4 italic">
+                                    <span>{{ reviews[0].text }}</span>
+                                </div>
+                                <span class="text-6xl hidden md:block leading-none">“</span>
                             </div>
-                            <span class="text-6xl hidden md:block leading-none">“</span>
+                        </div>
+                        <div class="md:w-1/5 w-2/5">
+                            <img :src="reviews[0].image" alt="" class="rounded-full lg:w-32 w-24 shadow-primary my-4">
                         </div>
                     </div>
-                    <div class="md:w-1/5 w-2/5">
-                        <img :src="reviews[0].image" alt="" class="rounded-full lg:w-32 w-24 shadow-primary my-4">
+                    <div class="text-xs text-gray-500 font-light mx-auto mt-4 md:w-4/5">
+                        {{ reviews[0].name }}
                     </div>
-                </div>
-                <div class="text-xs text-gray-500 font-light mx-auto mt-4 md:w-4/5">
-                    {{ reviews[0].name }}
-                </div>
-            </div>  
+                </div>  
+            </div>
         </section> 
         <footer class="bg-gray-800 text-gray-200 py-12">
             <div class="content-container lg:mx-auto mx-8">

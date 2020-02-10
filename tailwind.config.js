@@ -10,6 +10,8 @@ module.exports = {
         '128': '32rem',
       },
       colors: {
+        primary: "#323F82",
+        secondary: "#F8B802",
         gray: {
           '100': '#f7f7f7',
           '200': '#eaeef2',
@@ -20,7 +22,7 @@ module.exports = {
           '700': '#4c5359',
           '800': '#31373d',
           '900': '#182028'
-        }
+        },
       }
     }
   },

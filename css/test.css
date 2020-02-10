@@ -104,3 +104,22 @@ html {
 .menu-link {
     text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
 }
+
+h1 {
+
+}
+h2 {
+    @apply text-xl font-semibold;
+}
+h3 {
+    @apply text-lg font-semibold;
+}
+h4 {
+
+}
+h5 {
+
+}
+h6 {
+
+}
