@@ -106,10 +106,10 @@ html {
 }
 
 h2 {
-    @apply text-xl font-semibold text-gray-500;
+    @apply text-xl text-primary;
 }
 h3 {
-    @apply text-lg font-semibold;
+    @apply text-lg;
 }
 
 .alle .filter-button.all {

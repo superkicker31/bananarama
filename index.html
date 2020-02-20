@@ -43,7 +43,10 @@
                 <div id="about-section" class="pb-24 pt-32 content-container lg:mx-auto mx-8">
                     <p class="text-xl -ml-4 uppercase font-semibold text-gray-500 tracking-wide"><a href="#about-section" class="flex"><span class="w-4">#</span><span class="text-gray-700">About</span></a></p>
                     <p class="mt-4">
-                        {{ }}
+                        <h2>Das Erwachen der Macht</h2>
+                        <p>Die Bananarama Fantasy Football Liga erblickte 2015 mit ganzen 10 Mitgliedern auf nfl.com das Licht der Welt. Trotz einiger Abgänge aus dieser ursprünglichen Besetzung wurde die Liga in den beiden darauf folgenden Jahren sogar noch größer. Seit dem Jahr 2017 kämpfen also jedes Jahr 16 Manager um die prestigeträchtige Krone in der klassischen Bananarama redraft Liga.</p>
+                        <h2 class="mt-4">Eine neue Hoffnung</h2>
+                        <p> Seit 2019 gibt es die Bananarama Liga allerdings doppelt. Es wurde eine dynasty Liga auf sleeper.app gegründet, die bereits zu Beginn 20 Mitglieder umfasste.</p>
                     </p>
                 </div>
             </div>
@@ -68,22 +71,22 @@
                     </p>
                 </div>
                 <div class="flex">
-                    <div class="py-12 mr-4">
+                    <div class="py-12 mr-4 lg:w-2/3">
                         <h2> Tabelle </h2>
-                        <div class="bg-white py-8 mt-4 shadow-md inline-block rounded-md">
-                            <table class="text-center">
-                                <tr class="">
-                                    <th class="py-2">User name</th>
-                                    <th class="py-2 px-8 bg-gray-100">W</th>
-                                    <th class="py-2 px-8">L</th>
-                                    <th class="py-2 px-8 bg-gray-100">PF</th>
-                                    <th class="py-2 px-8">Waiver</th>
+                        <div class="bg-white mt-4 shadow-md inline-block rounded-md">
+                            <table class="pb-2">
+                                <tr class="text-primary bg-gray-200">
+                                    <th class="py-4">User name</th>
+                                    <th class="py-4 px-8">W</th>
+                                    <th class="py-4 px-8">L</th>
+                                    <th class="py-4 px-8">PF</th>
+                                    <th class="py-4 px-8">Waiver</th>
                                 </tr>
                                 <tr v-for="team in sleeperLeague.data">
-                                    <td class="py-1 px-8 text-left">{{ getSleeperName(team.owner_id)}}</td>
-                                    <td class="py-1 px-8 bg-gray-100">{{ 0 +  team.settings.wins }}</td>
+                                    <td class="py-1 px-8">{{ getSleeperName(team.owner_id)}}</td>
+                                    <td class="py-1 px-8">{{ 0 +  team.settings.wins }}</td>
                                     <td class="py-1 px-8">{{ 0 + team.settings.losses }}</td>
-                                    <td class="py-1 px-8 bg-gray-100">{{ 0 + team.settings.fpts }}</td>
+                                    <td class="py-1 px-8">{{ 0 + team.settings.fpts }}</td>
                                     <td class="py-1 px-8">${{ 1000 - team.settings.waiver_budget_used}}</td>
                                 </tr>
                             </table>
@@ -97,15 +100,24 @@
                     <h2>Tradeblock</h2>
                     <div class="lg:flex w-full flex-wrap -mx-2">
                             <div v-for="team in sleeperLeague.data" v-if="teamHasPlayersOtb(team)" class="lg:w-1/2 px-2 py-2">
-                                <div class="bg-white shadow-md px-6 py-4 rounded h-64 overflow-auto">
-                                    <p class="font-semibold">
+                                <div class="bg-white shadow-md rounded h-64 overflow-auto">
+                                    <p class="font-semibold px-4 py-2 bg-gray-200 text-primary">
                                         {{ getSleeperName(team.owner_id) }}
                                     </p>
-                                    <p v-for="(player_nickname, player_id) in team.metadata" v-if="playerIsOnTheTradeBlock(player_nickname)"> 
-                                        <span class="">{{ getPlayerNameById(player_id) }}</span> <span class="pl-4 text-primary italic"> {{ getPlayerNickWithoutOtb(player_nickname)}}</span>
-                                    </p>
+                                    <div class="px-4 py-2">
+                                        <p v-for="(player_nickname, player_id) in team.metadata" v-if="playerIsOnTheTradeBlock(player_nickname)"> 
+                                            <span class="text-lg">{{ getPlayerNameById(player_id) }}</span> <span class="pl-4 text-primary italic"> {{ getPlayerNickWithoutOtb(player_nickname)}}</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
+                    </div>
+                </div>
+                <div class="bg-white px-4 rounded-md">
+                    <h2>History</h2>
+                    <div>
+                        <h3>2019</h3>
+                        <p><span>Sieger</span> <span>Running Blacks (Manager: BenjajBlack)</span></p>
                     </div>
                 </div>
             </div>
