@@ -6,8 +6,12 @@
 
 html {
     scroll-behavior: smooth;
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
 }
-
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Josefin Sans", sans-serif;
+}
 .content-container {
     max-width: 970px;
 }
@@ -18,7 +22,7 @@ html {
     background-position: center center;
 }
 #header {
-    background: linear-gradient( #34407f, #2E3C8E);
+    background: url('img/background-header.jpg');
     background-size: cover;
     background-position: center center;
     text-shadow: 2px 2px #34407f;
@@ -39,21 +43,21 @@ html {
 }
 
 .tag.allgemein {
-    @apply bg-green-200 text-green-900;
+    @apply bg-green-300 text-green-900;
 }
 
 .tag.dynasty {
-    @apply bg-blue-200 text-blue-900;
+    @apply bg-blue-300 text-blue-900;
 }
 
 
 .tag.redraft {
-    @apply bg-yellow-200 text-yellow-900;
+    @apply bg-yellow-300 text-yellow-900;
 }
 
 
 .tag.podcast {
-    @apply bg-purple-200 text-purple-900;
+    @apply bg-purple-300 text-purple-900;
 }
 
 #load {
@@ -113,20 +117,24 @@ h3 {
 }
 
 .alle .filter-button.all {
-    @apply border-gray-600;
+    @apply border-gray-100;
 }
 
 .podcast .filter-button.podcast {
-    @apply border-purple-900;
+    @apply border-purple-100;
 }
 
 .redraft .filter-button.redraft {
-    @apply border-yellow-900;
+    @apply border-yellow-100;
 }
 .dynasty .filter-button.dynasty {
-    @apply border-blue-900;
+    @apply border-blue-100;
 }
 
 .allgemein .filter-button.allgemein {
-    @apply border-green-900;
+    @apply border-green-100;
+}
+
+.text-12xl {
+    font-size: 260px;
 }

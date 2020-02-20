@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/banana.ico">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="feed.xml">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito&display=swap" rel="stylesheet">
     <title>Bananarama Podcast - Home</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
     <div id="app" class="bg-gray-100 text-gray-700 font-light">
         <a class="fixed hidden w-full h-full z-10 mobile-menu-overlay" id="mobile-menu-overlay" v-on:click="toggleMobileMenu">
         </a>
-        <header class="w-full header text-gray-200 fixed shadow-primary z-30" id="header">
+        <header class="w-full header text-white fixed shadow-lg z-30" id="header">
             <img src="img/bananarama_transparent_logo.png" class="lg:hidden w-24 fixed z-100"/>
             <img src="img/bananarama_transparent_logo_192.png" class="xl:w-48 lg:w-32 hidden lg:inline-block fixed z-100"/>
             <div class="h-full header-bg-overlay block px-4" id="header-bg-overlay">
@@ -41,7 +42,7 @@
         <div class="pt-64">
             <div class="">
                 <div id="about-section" class="pb-24 pt-32 content-container lg:mx-auto mx-8">
-                    <p class="text-xl -ml-4 uppercase font-semibold text-gray-500 tracking-wide"><a href="#about-section" class="flex"><span class="w-4">#</span><span class="text-gray-700">About</span></a></p>
+                    <p class="text-xl -ml-4 uppercase font-semibold text-gray-500 tracking-wide"><a href="#about-section" class="flex text-gray-700 hover:text-primary"><span class="w-4 text-gray-400">#</span><span>About</span></a></p>
                     <p class="mt-4">
                         <h2>Das Erwachen der Macht</h2>
                         <p>Die Bananarama Fantasy Football Liga erblickte 2015 mit ganzen 10 Mitgliedern auf nfl.com das Licht der Welt. Trotz einiger Abgänge aus dieser ursprünglichen Besetzung wurde die Liga in den beiden darauf folgenden Jahren sogar noch größer. Seit dem Jahr 2017 kämpfen also jedes Jahr 16 Manager um die prestigeträchtige Krone in der klassischen Bananarama redraft Liga.</p>
@@ -53,7 +54,7 @@
             <div class="bg-gray-300">
                 <div id="redraft-section" class="py-24 content-container lg:mx-auto  mx-8">
                     <div>
-                        <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#redraft-section" class="flex"><span class="w-4">#</span> <span class="text-gray-700">Redraft</span></a></p>
+                        <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#redraft-section" class="flex text-gray-700 hover:text-primary"><span class="w-4 text-gray-500">#</span><span>Redraft</span></a></p>
                         <p class="mt-4">
                             Alles rund um die klassische Bananarama Redraft Liga auf nfl.com
                         </p>
@@ -65,34 +66,35 @@
             </div>
             <div id="dynasty-section" class="py-24 content-container lg:mx-auto mx-8">
                 <div>
-                    <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#dynasty-section" class="flex"><span class="w-4">#</span><span class="text-gray-700">Dynasty</span></a></p>
+                    <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#dynasty-section" class="flex text-gray-700 hover:text-primary"><span class="w-4 text-gray-400">#</span><span>Dynasty</span></a></p>
                     <p class="mt-4">
                         Wenn es um die Bananarama Dynasty Liga auf sleeper.app geht, findest du es hier
                     </p>
                 </div>
-                <div class="flex">
-                    <div class="py-12 mr-4 lg:w-2/3">
-                        <h2> Tabelle </h2>
-                        <div class="bg-white mt-4 shadow-md inline-block rounded-md">
-                            <table class="pb-2">
-                                <tr class="text-primary bg-gray-200">
-                                    <th class="py-4">User name</th>
-                                    <th class="py-4 px-8">W</th>
-                                    <th class="py-4 px-8">L</th>
-                                    <th class="py-4 px-8">PF</th>
-                                    <th class="py-4 px-8">Waiver</th>
-                                </tr>
-                                <tr v-for="team in sleeperLeague.data">
-                                    <td class="py-1 px-8">{{ getSleeperName(team.owner_id)}}</td>
-                                    <td class="py-1 px-8">{{ 0 +  team.settings.wins }}</td>
-                                    <td class="py-1 px-8">{{ 0 + team.settings.losses }}</td>
-                                    <td class="py-1 px-8">{{ 0 + team.settings.fpts }}</td>
-                                    <td class="py-1 px-8">${{ 1000 - team.settings.waiver_budget_used}}</td>
-                                </tr>
-                            </table>
+                <div>
+                    <div class="py-12 mr-4 w-full">
+                        <div class="bg-white mt-4 shadow-md inline-block rounded-md w-full">
+                            <div class="pb-2 w-full">
+                                <div class="text-primary bg-gray-200 md:text-xl flex justify-between rounded-t-md lg:px-12 px-2">
+                                    <div class="w-8 md:w-12 py-4 font-semibold">#</div>
+                                    <div class="flex-1 py-4 font-semibold">User</div>
+                                    <div class="w-8 md:w-12 py-4 font-semibold">W</div>
+                                    <div class="w-8 md:w-12 py-4 font-semibold">L</div>
+                                    <div class="w-8 md:w-12 py-4 font-semibold">PF</div>
+                                    <div class="w-12 py-4 font-semibold">Waiver</div>
+                                </div>
+                                <div v-for="(team, index) in sleeperLeague.data" class="flex justify-between lg:px-12 px-2 py-2">
+                                    <div class="w-8 md:w-12 text-gray-500 font-semibold">{{ index+1 }}</div>
+                                    <div class="flex-1">{{ getSleeperName(team.owner_id)}}</div>
+                                    <div class="w-8 md:w-12">{{ 0 +  team.settings.wins }}</div>
+                                    <div class="w-8 md:w-12">{{ 0 + team.settings.losses }}</div>
+                                    <div class="w-8 md:w-12">{{ 0 + team.settings.fpts }}</div>
+                                    <div class="w-12">${{ 1000 - team.settings.waiver_budget_used}}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="py-12 ml-4">
+                    <div class="py-12">
                         <h2> Letzte Transaktionen </h2>
                     </div>
                 </div>
@@ -101,7 +103,7 @@
                     <div class="lg:flex w-full flex-wrap -mx-2">
                             <div v-for="team in sleeperLeague.data" v-if="teamHasPlayersOtb(team)" class="lg:w-1/2 px-2 py-2">
                                 <div class="bg-white shadow-md rounded h-64 overflow-auto">
-                                    <p class="font-semibold px-4 py-2 bg-gray-200 text-primary">
+                                    <p class="font-semibold px-4 py-2 bg-secondary text-yellow-900">
                                         {{ getSleeperName(team.owner_id) }}
                                     </p>
                                     <div class="px-4 py-2">
@@ -113,28 +115,28 @@
                             </div>
                     </div>
                 </div>
-                <div class="bg-white px-4 rounded-md">
-                    <h2>History</h2>
+                <div class="py-12">
+                    <h2>Geschichte</h2>
                     <div>
                         <h3>2019</h3>
                         <p><span>Sieger</span> <span>Running Blacks (Manager: BenjajBlack)</span></p>
                     </div>
                 </div>
             </div>
-            <div class="bg-gray-300"> 
+            <div class="bg-primary"> 
             <div id="announcements-section" class="py-24 content-container lg:mx-auto mx-8">
                 <div>
-                    <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#announcements-section" class="flex"><span class="w-4">#</span><span class="text-gray-700">Announcements</span> </a><p>
-                    <p class="mt-4">
+                    <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#announcements-section" class="flex text-white hover:text-secondary"><span class="w-4 text-blue-200">#</span><span>Announcements</span> </a><p>
+                    <p class="mt-4 text-blue-200">
                         Hier findet Ihr wichtige Ankündigungen für die Bananarama Ligen.
                     </p>
                     <div class="mt-4" :class="activeTag">
                         <div class="content-container lg:mx-auto mx-8 flex items-center justify-between flex-wrap">
-                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag allgemein focus:outline-none filter-button border-2 border-transparent shadow-sm" @click="setActiveTag('allgemein')" id="filter-button-allgemein">allgemein</button>
-                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag dynasty focus:outline-none filter-button shadow-sm border-2  border-transparent" @click="setActiveTag('dynasty')" id="filter-button-dynasty">dynasty</button>
-                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag redraft focus:outline-none filter-button shadow-sm border-2 border-transparent"  @click="setActiveTag('redraft')" id="filter-button-redraft">redraft</button>
-                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag podcast focus:outline-none filter-button shadow-sm border-2 border-transparent" @click="setActiveTag('podcast')" id="filter-button-podcast">podcast</button>
-                            <button class="text-sm rounded-full px-4 pr-1 py-1 my-4 tag all  focus:outline-none text-gray-900 bg-gray-400 flex items-center filter-button border-2 border-transparent shadow-sm"  @click="setActiveTag('alle')" id="filter-button-news-item">alle <span class="fas fa-times mx-2 text-gray-700"></span> </button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag allgemein focus:outline-none filter-button border-4 border-transparent shadow-sm" @click="setActiveTag('allgemein')" id="filter-button-allgemein">allgemein</button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag dynasty focus:outline-none filter-button shadow-sm border-4  border-transparent" @click="setActiveTag('dynasty')" id="filter-button-dynasty">dynasty</button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag redraft focus:outline-none filter-button shadow-sm border-4 border-transparent"  @click="setActiveTag('redraft')" id="filter-button-redraft">redraft</button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag podcast focus:outline-none filter-button shadow-sm border-4 border-transparent" @click="setActiveTag('podcast')" id="filter-button-podcast">podcast</button>
+                            <button class="text-sm rounded-full px-4 pr-1 py-1 my-4 tag all  focus:outline-none text-gray-900 bg-gray-400 flex items-center filter-button border-4 border-transparent shadow-sm"  @click="setActiveTag('alle')" id="filter-button-news-item">alle <span class="fas fa-times mx-2 text-gray-700"></span> </button>
                         </div>
                     </div>
                 </div>
@@ -161,8 +163,8 @@
                 <div>
                     <p class="my-2 text-sm text-gray-500">
                         <div v-if="showMoreButton()" class="text-center">
-                            <a @click="showThreeMoreAnnouncements" class="text-center text-gray-500 cursor-pointer">
-                                <i class="fas fa-angle-double-down"></i> Die nächsten <span class="font-semibold text-primary"> {{ Math.min(3, getAllActiveNewsItems().length - announcementsCounter) }} </span> anzeigen <i class="fas fa-angle-double-down"></i>
+                            <a @click="showThreeMoreAnnouncements" class="text-center text-blue-200 cursor-pointer">
+                                <i class="fas fa-angle-double-down"></i> Die nächsten <span class="font-bold text-white"> {{ Math.min(3, getAllActiveNewsItems().length - announcementsCounter) }} </span> anzeigen <i class="fas fa-angle-double-down"></i>
                             </a>
                         </div>
                         <div v-if="!announcementsCollapsed" class="text-center">
@@ -176,16 +178,13 @@
         </div>
         <section class="mt-12" id="feedback-section">
             <div id="podcast-section" class="py-24 content-container lg:mx-auto mx-8">
-                <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#podcast-section"><span class="w-4">#</span> <span class="text-gray-700">Podcast</span></a></p>
+                <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide -ml-4"><a href="#podcast-section" class="text-gray-700 hover:text-primary flex"><span class="w-4 text-gray-400">#</span> <span>Podcast</span></a></p>
                 <p class="mt-4">
                     {{ introText }}
                 </p>
                 <div class="podcast-list">
-                    <div>
-                        <h2 class="mt-4">Neueste Episoden</h2>
-                    </div>
                     <div class="">
-                        <div class="bg-white mt-4 px-8 py-6 border-l-4 border-primary">
+                        <div class="bg-white mt-4 px-8 py-6 border-l-4 border-primary shadow-lg">
                             <h3 class="text-primary">Dynasty</h3>
                             <div class="lg:flex">
                                 <div class="lg:w-2/3">
@@ -197,7 +196,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white mt-4 px-8 py-6 border-l-4 border-secondary">
+                        <div class="bg-white mt-4 px-8 py-6 border-l-4 border-secondary shadow-lg">
                             <h3 class="text-primary">Redraft</h3>
                             <div class="lg:flex">
                                 <div class="lg:w-2/3">
@@ -217,20 +216,19 @@
                 <div>
                     <div class="content-container mt-4 px-4 py-24 lg:mx-auto mx-8">
                         <div class="flex md:flex-row justify-center items-center">
-                            <div class="w-3/5 pr-8">
-                                <div class="flex items-center justify-start font-serif">
-                                    <span class="text-6xl hidden md:block font-serif leading-none">„</span>
-                                    <div class="md:px-4 italic">
-                                        <span>{{ reviews[0].text }}</span>
+                            <div class="w-4/5 pr-8">
+                                <div class="flex items-center justify-start">
+                                    <h6 class="text-12xl md:-mt-16 -mt-12 block leading-none text-gray-400">„</h6>
+                                    <div class="md:px-4 md:-ml-12 -ml-8 italic">
+                                        <h6>{{ reviews[0].text }}</h6>
                                     </div>
-                                    <span class="text-6xl hidden md:block leading-none">“</span>
                                 </div>
                             </div>
-                            <div class="md:w-1/5 w-2/5">
+                            <div class="w-1/5">
                                 <img :src="reviews[0].image" alt="" class="rounded-full lg:w-32 w-24 shadow-primary my-4">
                             </div>
                         </div>
-                        <div class="text-xs text-gray-500 font-light mx-auto mt-4 md:w-4/5">
+                        <div class="text-xs text-gray-500 font-light mx-auto md:mt-0 md:w-4/5">
                             {{ reviews[0].name }}
                         </div>
                     </div>  
