@@ -60,6 +60,9 @@ h1,h2,h3,h4,h5,h6 {
     @apply bg-purple-300 text-purple-900;
 }
 
+#mobile-header-logo {
+    transition: all 0.2s;
+}
 #load {
     @apply bg-primary;
     width:100%;

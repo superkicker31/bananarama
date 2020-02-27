@@ -214,11 +214,15 @@ function scrollFunction() {
   if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 50) {
     document.getElementById("header-title").style.height = "0";
     document.getElementById("header-title-text").style.display = "none";
+    
+    document.getElementById("mobile-header-logo").style.height = "120px";
+    document.getElementById("mobile-header-logo").style.width = "120px";
   } else {
     document.getElementById("header-title-text").style.display = "flex";
     document.getElementById("header-title").style.height = "256px";
     document.getElementById("header-bg-overlay").style.display = "block";
-
+    document.getElementById("mobile-header-logo").style.height = "60px";
+    document.getElementById("mobile-header-logo").style.width = "60px";
   }
 }
 
