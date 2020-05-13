@@ -32,7 +32,7 @@
                         <a @click="toggleMobileMenu" :href="item.link" class="md:px-4 py-4 md:mr-4 hover:border-blue-700 border-b-4 border-transparent block text-right"><span :class="item.classList">{{ item.linkText }}<span></span></a>
                     </span>
                 </div>
-                <div class="xl:flex hidden content-container md:mx-auto tracking-wide font-normal text-xl">
+                <div class="xl:flex hidden content-container justify-center md:mx-auto tracking-wide font-normal text-xl">
                     <span v-for="item in menu" class="hidden md:inline-block menu-link">
                         <a :href="item.link" class="px-4 py-4 mr-4 hover:border-secondary border-b-4 border-transparent block text-right"><span :class="item.classList">{{ item.linkText }}<span></span></a>
                     </span>
