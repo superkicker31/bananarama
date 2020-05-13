@@ -22,8 +22,8 @@
         <a class="fixed hidden w-full h-full z-10 mobile-menu-overlay" id="mobile-menu-overlay" v-on:click="toggleMobileMenu">
         </a>
         <header class="w-full header text-white fixed shadow-lg z-30" id="header">
-            <img src="img/bananarama_transparent_logo.png" id="mobile-header-logo" class="lg:hidden w-12 fixed z-100"/>
-            <img src="img/bananarama_transparent_logo_192.png" class="xl:w-48 lg:w-32 hidden lg:inline-block fixed z-100"/>
+            <a href="/"><img src="img/bananarama_transparent_logo.png" id="mobile-header-logo" class="lg:hidden w-12 fixed z-100"/></a>
+            <a href="/"><img src="img/bananarama_transparent_logo_192.png" class="xl:w-48 lg:w-32 hidden lg:inline-block fixed z-100"/></a>
             <div class="h-full header-bg-overlay block px-4" id="header-bg-overlay">
                 <div class="lg:text-6xl md:text-4xl text-2xl tracking-wider flex justify-center font-semibold items-center h-64" id="header-title"><span id="header-title-text" class="text-center pt-1"> Bananarama Fantasy Football</span></div>
                 <div class="xl:hidden content-container justify-center lg:mx-auto uppercase tracking-wide font-normal text-xl">
@@ -40,8 +40,7 @@
             </div>
         </header>
         <div class="pt-64">
-            <section>
-                <div id="podcast-section" class="py-24 content-container lg:mx-auto mx-2">
+            <section id="podcast-section" class="pb-24 pt-32 content-container lg:mx-auto mx-2">
                     <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide lg:-ml-4"><a href="#podcast-section" class="text-gray-700 hover:text-primary flex"><span class="w-4 text-gray-400">#</span> <span>Podcast</span></a></p>
                     <p class="mt-4">
                         {{ introText }}
@@ -52,10 +51,11 @@
                                 <h3 class="text-primary">Dynasty</h3>
                                 <div class="lg:flex">
                                     <div class="lg:w-2/3">
-                                    <iframe src="https://www.podomatic.com/embed/html5/episode/9605362?style=normal&amp;autoplay=false" allowfullscreen="true" allow="autoplay; fullscreen" style="width: 100%; height: 208px;"></iframe></div>
+                                        <iframe src="https://www.podomatic.com/embed/html5/episode/9724814?style=normal&amp;autoplay=false" allowfullscreen="true" allow="autoplay; fullscreen" style="width: 504px; height: 208px;"></iframe>
+                                    </div>
                                     <div class="lg:pl-4 lg:w-1/3">
                                         <p>
-                                                Ich hab ehrlich gesagt vergessen um was es ging und keinen Bock mehr mir das anzuhören. Daher, wünsch ich einfach viel Spaß mit der Episode
+                                            Die neue Saison startet bald, mit neuen Gesichtern sowohl in der NFL als auch der Banarama Dynasty Liga. Frank und Alex geben eine kurze Einführung für die neuen und bereiten die Liga auf das neue Jahr vor.
                                         </p>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="lg:pl-4 lg:w-1/3">
                                             <p>
-                                                Ich hab ehrlich gesagt vergessen um was es ging und keinen Bock mehr mir das anzuhören. Daher, wünsch ich einfach viel Spaß mit der Episode
+                                                Leider gibt es noch keine Episode für die Redraft-Liga 2020. Schaut ab und zu mal vorbei, allzu lang kanns nicht mehr dauern.
                                             </p>
                                     </div>
                                 </div>
@@ -98,8 +98,8 @@
                         </div>  
                     </div>
                 </div>
-            </section>  
-        </div>       
+            </section>    
+        </div>   
         <footer class="bg-gray-800 text-gray-200 py-12">
             <div class="content-container lg:mx-auto mx-2">
                 <div class="flex">
@@ -120,9 +120,6 @@
                 </div>
             </div>
         </footer>
-    </div>
-    <div>
- 
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

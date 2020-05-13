@@ -22,8 +22,8 @@
         <a class="fixed hidden w-full h-full z-10 mobile-menu-overlay" id="mobile-menu-overlay" v-on:click="toggleMobileMenu">
         </a>
         <header class="w-full header text-white fixed shadow-lg z-30" id="header">
-            <img src="img/bananarama_transparent_logo.png" id="mobile-header-logo" class="lg:hidden w-12 fixed z-100"/>
-            <img src="img/bananarama_transparent_logo_192.png" class="xl:w-48 lg:w-32 hidden lg:inline-block fixed z-100"/>
+            <a href="/"><img src="img/bananarama_transparent_logo.png" id="mobile-header-logo" class="lg:hidden w-12 fixed z-100"/></a>
+            <a href="/"><img src="img/bananarama_transparent_logo_192.png" class="xl:w-48 lg:w-32 hidden lg:inline-block fixed z-100"/></a>
             <div class="h-full header-bg-overlay block px-4" id="header-bg-overlay">
                 <div class="lg:text-6xl md:text-4xl text-2xl tracking-wider flex justify-center font-semibold items-center h-64" id="header-title"><span id="header-title-text" class="text-center pt-1"> Bananarama Fantasy Football</span></div>
                 <div class="xl:hidden content-container justify-center lg:mx-auto uppercase tracking-wide font-normal text-xl">
@@ -40,59 +40,57 @@
             </div>
         </header>
         <div class="pt-64">
-            <div> 
-                <div id="announcements-section" class="py-24 content-container lg:mx-auto mx-2">
-                    <div>
-                        <p class="text-xl uppercase font-semibold tracking-wide lg:-ml-4"><a href="#announcements-section" class="flexhover:text-secondary"><span class="w-4 text-gray-500">#</span><span>Announcements</span> </a><p>
-                        <p class="mt-4">
-                            Hier findet Ihr wichtige Ankündigungen für die Bananarama Ligen.
-                        </p>
-                        <div class="mt-4" :class="activeTag">
-                            <div class="content-container lg:mx-auto mx-2 flex items-center justify-between flex-wrap">
-                                <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag allgemein focus:outline-none filter-button border-4 border-transparent shadow-sm" @click="setActiveTag('allgemein')" id="filter-button-allgemein">allgemein</button>
-                                <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag dynasty focus:outline-none filter-button shadow-sm border-4  border-transparent" @click="setActiveTag('dynasty')" id="filter-button-dynasty">dynasty</button>
-                                <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag redraft focus:outline-none filter-button shadow-sm border-4 border-transparent"  @click="setActiveTag('redraft')" id="filter-button-redraft">redraft</button>
-                                <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag podcast focus:outline-none filter-button shadow-sm border-4 border-transparent" @click="setActiveTag('podcast')" id="filter-button-podcast">podcast</button>
-                                <button class="text-sm rounded-full px-4 pr-1 py-1 my-4 tag all  focus:outline-none text-gray-900 bg-gray-400 flex items-center filter-button border-4 border-transparent shadow-sm"  @click="setActiveTag('alle')" id="filter-button-news-item">alle <span class="fas fa-times mx-2 text-gray-700"></span> </button>
-                            </div>
+            <section id="announcements-section" class="pb-24 pt-32 content-container lg:mx-auto mx-2">
+                <div>
+                    <p class="text-xl uppercase font-semibold tracking-wide lg:-ml-4"><a href="#announcements-section" class="flexhover:text-secondary"><span class="w-4 text-gray-500">#</span><span>Announcements</span> </a><p>
+                    <p class="mt-4">
+                        Hier findet Ihr wichtige Ankündigungen für die Bananarama Ligen.
+                    </p>
+                    <div class="mt-4" :class="activeTag">
+                        <div class="content-container lg:mx-auto mx-2 flex items-center justify-between flex-wrap">
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag allgemein focus:outline-none filter-button border-4 border-transparent shadow-sm" @click="setActiveTag('allgemein')" id="filter-button-allgemein">allgemein</button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag dynasty focus:outline-none filter-button shadow-sm border-4  border-transparent" @click="setActiveTag('dynasty')" id="filter-button-dynasty">dynasty</button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag redraft focus:outline-none filter-button shadow-sm border-4 border-transparent"  @click="setActiveTag('redraft')" id="filter-button-redraft">redraft</button>
+                            <button class="text-sm rounded-full px-4 py-1 my-4 mr-2 tag podcast focus:outline-none filter-button shadow-sm border-4 border-transparent" @click="setActiveTag('podcast')" id="filter-button-podcast">podcast</button>
+                            <button class="text-sm rounded-full px-4 pr-1 py-1 my-4 tag all  focus:outline-none text-gray-900 bg-gray-400 flex items-center filter-button border-4 border-transparent shadow-sm"  @click="setActiveTag('alle')" id="filter-button-news-item">alle <span class="fas fa-times mx-2 text-gray-700"></span> </button>
                         </div>
-                    </div>
-                    <div class="bg-white news-item shadow-lg px-8 py-6 mt-4 rounded" v-for="item in getAllActiveNewsItems().slice(0,announcementsCounter)" :class="item.types.join(' ')" v-if="itemHasActiveTag(item.types.join(' '))">
-                        <div class="py-2">
-                            <div class="flex justify-between">
-                                <div>
-                                    <h3 class="font-semibold sm:flex items-center"><span>{{ item.title }}</span> <span class="ml-1 text-gray-500 font-light text-sm leading-none"> - {{ item.date }}</span></h3>
-                                </div>
-                                <div class="flex">
-                                    <span v-for="type in item.types">
-                                        <span class="text-sm rounded-full md:px-4 px-2 md:py-1 mr-2 tag" :class="type">
-                                                <span class="md:inline-block hidden">{{ type }}</span>
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-                            <p class="mt-2">{{ item.text }} <a :href="item.link" class="text-blue-700 hover:underline">{{ item.linkText }}</a></p>
-                        </div>
-                    </div>
-                    <div v-if="getAllActiveNewsItems().length === 0" class="bg-white text-center font-semibold py-12 shadow-md rounded-md text-primary mt-4">
-                        Huch, hier gibt es noch keine Benachrichtigungen.... Schnell eine andere Kategorie aussuchen!
-                    </div>
-                    <div>
-                        <p class="my-2 text-sm text-gray-500">
-                            <div v-if="showMoreButton()" class="text-center">
-                                <a @click="showThreeMoreAnnouncements" class="text-center text-blue-200 cursor-pointer">
-                                    <i class="fas fa-angle-double-down"></i> Die nächsten <span class="font-bold text-white"> {{ Math.min(3, getAllActiveNewsItems().length - announcementsCounter) }} </span> anzeigen <i class="fas fa-angle-double-down"></i>
-                                </a>
-                            </div>
-                            <div v-if="!announcementsCollapsed" class="text-center">
-                                <a @click="showDefaultAnnouncements" class="text-center text-gray-500 cursor-pointer">
-                                    <i class="fas fa-angle-double-up"></i> Einklappen <i class="fas fa-angle-double-up"></i>
-                                </a>
-                            </div>
-                        </p>
                     </div>
                 </div>
-            </div>
+                <div class="bg-white news-item shadow-lg px-8 py-6 mt-4 rounded" v-for="item in getAllActiveNewsItems().slice(0,announcementsCounter)" :class="item.types.join(' ')" v-if="itemHasActiveTag(item.types.join(' '))">
+                    <div class="py-2">
+                        <div class="flex justify-between">
+                            <div>
+                                <h3 class="font-semibold sm:flex items-center"><span>{{ item.title }}</span> <span class="ml-1 text-gray-500 font-light text-sm leading-none"> - {{ item.date }}</span></h3>
+                            </div>
+                            <div class="flex">
+                                <span v-for="type in item.types">
+                                    <span class="text-sm rounded-full md:px-4 px-2 md:py-1 mr-2 tag" :class="type">
+                                            <span class="md:inline-block hidden">{{ type }}</span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="mt-2">{{ item.text }} <a :href="item.link" class="text-blue-700 hover:underline">{{ item.linkText }}</a></p>
+                    </div>
+                </div>
+                <div v-if="getAllActiveNewsItems().length === 0" class="bg-white text-center font-semibold py-12 shadow-md rounded-md text-primary mt-4">
+                    Huch, hier gibt es noch keine Benachrichtigungen.... Schnell eine andere Kategorie aussuchen!
+                </div>
+                <div>
+                    <p class="my-2 text-sm text-gray-500">
+                        <div v-if="showMoreButton()" class="text-center">
+                            <a @click="showThreeMoreAnnouncements" class="text-center  text-gray-500 cursor-pointer">
+                                <i class="fas fa-angle-double-down"></i> Die nächsten <span class="font-bold text-gray-700"> {{ Math.min(3, getAllActiveNewsItems().length - announcementsCounter) }} </span> anzeigen <i class="fas fa-angle-double-down"></i>
+                            </a>
+                        </div>
+                        <div v-if="!announcementsCollapsed" class="text-center">
+                            <a @click="showDefaultAnnouncements" class="text-center text-gray-500 cursor-pointer">
+                                <i class="fas fa-angle-double-up"></i> Einklappen <i class="fas fa-angle-double-up"></i>
+                            </a>
+                        </div>
+                    </p>
+                </div>
+            </section>
         </div>        
         <footer class="bg-gray-800 text-gray-200 py-12">
             <div class="content-container lg:mx-auto mx-2">

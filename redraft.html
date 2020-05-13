@@ -22,8 +22,8 @@
         <a class="fixed hidden w-full h-full z-10 mobile-menu-overlay" id="mobile-menu-overlay" v-on:click="toggleMobileMenu">
         </a>
         <header class="w-full header text-white fixed shadow-lg z-30" id="header">
-            <img src="img/bananarama_transparent_logo.png" id="mobile-header-logo" class="lg:hidden w-12 fixed z-100"/>
-            <img src="img/bananarama_transparent_logo_192.png" class="xl:w-48 lg:w-32 hidden lg:inline-block fixed z-100"/>
+            <a href="/"><img src="img/bananarama_transparent_logo.png" id="mobile-header-logo" class="lg:hidden w-12 fixed z-100"/></a>
+            <a href="/"><img src="img/bananarama_transparent_logo_192.png" class="xl:w-48 lg:w-32 hidden lg:inline-block fixed z-100"/></a>
             <div class="h-full header-bg-overlay block px-4" id="header-bg-overlay">
                 <div class="lg:text-6xl md:text-4xl text-2xl tracking-wider flex justify-center font-semibold items-center h-64" id="header-title"><span id="header-title-text" class="text-center pt-1"> Bananarama Fantasy Football</span></div>
                 <div class="xl:hidden content-container justify-center lg:mx-auto uppercase tracking-wide font-normal text-xl">
@@ -40,19 +40,17 @@
             </div>
         </header>
         <div class="pt-64">
-            <div class="bg-gray-300">
-                <div id="redraft-section" class="py-24 content-container lg:mx-auto  mx-2">
-                    <div>
-                        <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide lg:-ml-4"><a href="#redraft-section" class="flex text-gray-700 hover:text-primary"><span class="w-4 text-gray-500">#</span><span>Redraft</span></a></p>
-                        <p class="mt-4">
-                            Alles rund um die klassische Bananarama Redraft Liga auf nfl.com
-                        </p>
-                    </div>
-                    <div>
-                        some contents
-                    </div>
+            <section id="redraft-section" class="pb-24 pt-32 content-container lg:mx-auto  mx-2">
+                <div>
+                    <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide lg:-ml-4"><a href="#redraft-section" class="flex text-gray-700 hover:text-primary"><span class="w-4 text-gray-500">#</span><span>Redraft</span></a></p>
+                    <p class="mt-4">
+                        Alles rund um die klassische Bananarama Redraft Liga auf nfl.com
+                    </p>
                 </div>
-            </div>     
+                <div>
+                    some contents
+                </div>
+            </section>
         </div>
         <footer class="bg-gray-800 text-gray-200 py-12">
             <div class="content-container lg:mx-auto mx-2">
@@ -74,9 +72,6 @@
                 </div>
             </div>
         </footer>
-    </div>
-    <div>
- 
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

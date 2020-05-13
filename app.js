@@ -34,50 +34,10 @@ var app = new Vue({
         types: [
           'allgemein'
         ],
-        text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
-        date: '29.11.2019',
-        link: 'https://superkicker31.github.io/bananarama',
-        linkText: "Die neue Bananarama Podcast Webseite"
-      },
-       {
-        title: 'Neue Website für die Liga',
-        types: [
-          'allgemein'
-        ],
-        text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
-        date: '29.11.2019',
-        link: 'https://superkicker31.github.io/bananarama',
-        linkText: "Die neue Bananarama Podcast Webseite"
-      },
-      {
-        title: 'Neue Website für die Liga',
-        types: [
-          'dynasty'
-        ],
-        text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
-        date: '29.11.2019',
-        link: 'https://superkicker31.github.io/bananarama',
-        linkText: "Die neue Bananarama Podcast Webseite"
-      },
-      {
-        title: 'Neue Website für die Liga',
-        types: [
-          'allgemein', 'redraft'
-        ],
-        text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
-        date: '29.11.2019',
-        link: 'https://superkicker31.github.io/bananarama',
-        linkText: "Die neue Bananarama Podcast Webseite"
-      },
-      {
-        title: 'Neue Website für die Liga',
-        types: [
-          'allgemein'
-        ],
-        text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Der Bananarama Podcast hat jetzt endlich ein eigenes Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
-        date: '29.11.2019',
-        link: 'https://superkicker31.github.io/bananarama',
-        linkText: "Die neue Bananarama Podcast Webseite"
+        text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Die Bananarama Fantasy Football liegen haben jetzt endlich ein gemeinsames Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
+        date: '13.05.2020',
+        link: 'https://bananarama.netlify.app',
+        linkText: "Die neue Bananarama Webseite"
       }
     ],
     reviews: [
@@ -214,12 +174,11 @@ function scrollFunction() {
   if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 50) {
     document.getElementById("header-title").style.height = "0";
     document.getElementById("header-title-text").style.display = "none";
-    
     document.getElementById("mobile-header-logo").style.height = "120px";
     document.getElementById("mobile-header-logo").style.width = "120px";
   } else {
     document.getElementById("header-title-text").style.display = "flex";
-    document.getElementById("header-title").style.height = "256px";
+    document.getElementById("header-title").style.height = "320px";
     document.getElementById("header-bg-overlay").style.display = "block";
     document.getElementById("mobile-header-logo").style.height = "60px";
     document.getElementById("mobile-header-logo").style.width = "60px";
