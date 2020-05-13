@@ -32,7 +32,7 @@
                         <a @click="toggleMobileMenu" :href="item.link" class="md:px-4 py-4 md:mr-4 hover:border-blue-700 border-b-4 border-transparent block text-right"><span :class="item.classList">{{ item.linkText }}<span></span></a>
                     </span>
                 </div>
-                <div class="xl:flex hidden content-container md:mx-auto tracking-wide font-normal text-xl">
+                <div class="xl:flex hidden content-container justify-center md:mx-auto tracking-wide font-normal text-xl">
                     <span v-for="item in menu" class="hidden md:inline-block menu-link">
                         <a :href="item.link" class="px-4 py-4 mr-4 hover:border-secondary border-b-4 border-transparent block text-right"><span :class="item.classList">{{ item.linkText }}<span></span></a>
                     </span>
@@ -61,65 +61,6 @@
                     </div>
                     <div>
                         some contents
-                    </div>
-                </div>
-            </div>
-            <div id="dynasty-section" class="py-24 content-container lg:mx-auto mx-2">
-                <div>
-                    <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide lg:-ml-4"><a href="#dynasty-section" class="flex text-gray-700 hover:text-primary"><span class="w-4 text-gray-400">#</span><span>Dynasty</span></a></p>
-                    <p class="mt-4">
-                        Wenn es um die Bananarama Dynasty Liga auf sleeper.app geht, findest du es hier
-                    </p>
-                </div>
-                <div>
-                    <div class="py-12 mr-4 w-full">
-                        <div class="bg-white mt-4 shadow-md inline-block rounded-md w-full">
-                            <div class="pb-2 w-full text-sm">
-                                <div class="text-primary bg-gray-200 md:text-xl flex justify-between rounded-t-md lg:px-12 px-2">
-                                    <div class="w-8 md:w-12 py-4 font-semibold">#</div>
-                                    <div class="flex-1 py-4 font-semibold">User</div>
-                                    <div class="w-8 md:w-12 py-4 font-semibold">W</div>
-                                    <div class="w-8 md:w-12 py-4 font-semibold">L</div>
-                                    <div class="w-8 md:w-12 py-4 font-semibold">PF</div>
-                                    <div class="w-12 py-4 font-semibold hidden md:block">Waiver</div>
-                                </div>
-                                <div v-for="(team, index) in sleeperLeague.data" class="flex justify-between lg:px-12 px-2 py-2">
-                                    <div class="w-8 md:w-12 text-gray-500 font-semibold">{{ index+1 }}</div>
-                                    <div class="flex-1">{{ getSleeperName(team.owner_id)}}</div>
-                                    <div class="w-8 md:w-12">{{ 0 +  team.settings.wins }}</div>
-                                    <div class="w-8 md:w-12">{{ 0 + team.settings.losses }}</div>
-                                    <div class="w-8 md:w-12">{{ 0 + team.settings.fpts }}</div>
-                                    <div class="w-12 hidden md:block">${{ 1000 - team.settings.waiver_budget_used}}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="py-12">
-                        <h2> Letzte Transaktionen </h2>
-                    </div>
-                </div>
-                <div>
-                    <h2>Tradeblock</h2>
-                    <div class="lg:flex w-full flex-wrap lg:-mx-2">
-                            <div v-for="team in sleeperLeague.data" v-if="teamHasPlayersOtb(team)" class="lg:w-1/2 px-2 py-2">
-                                <div class="bg-white shadow-md rounded h-64 overflow-auto">
-                                    <p class="font-semibold px-4 py-2 bg-secondary text-yellow-900">
-                                        {{ getSleeperName(team.owner_id) }}
-                                    </p>
-                                    <div class="px-4 py-2">
-                                        <p v-for="(player_nickname, player_id) in team.metadata" v-if="playerIsOnTheTradeBlock(player_nickname)"> 
-                                            <span class="text-lg">{{ getPlayerNameById(player_id) }}</span> <span class="pl-4 text-primary italic"> {{ getPlayerNickWithoutOtb(player_nickname)}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-                <div class="py-12">
-                    <h2>Geschichte</h2>
-                    <div>
-                        <h3>2019</h3>
-                        <p><span>Sieger</span> <span>Running Blacks (Manager: BenjajBlack)</span></p>
                     </div>
                 </div>
             </div>

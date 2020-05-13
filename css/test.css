@@ -120,22 +120,22 @@ h3 {
 }
 
 .alle .filter-button.all {
-    @apply border-gray-100;
+    @apply border-gray-900;
 }
 
 .podcast .filter-button.podcast {
-    @apply border-purple-100;
+    @apply border-purple-900;
 }
 
 .redraft .filter-button.redraft {
-    @apply border-yellow-100;
+    @apply border-yellow-900;
 }
 .dynasty .filter-button.dynasty {
-    @apply border-blue-100;
+    @apply border-blue-900;
 }
 
 .allgemein .filter-button.allgemein {
-    @apply border-green-100;
+    @apply border-green-900;
 }
 
 .text-12xl {

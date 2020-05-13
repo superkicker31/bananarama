@@ -3,27 +3,27 @@ var app = new Vue({
   data: {
     menu: [
         {
-          link: "#about-section",
-          linkText: "About",
-          classList: " md:-ml-4"
+          link: "/",
+          linkText: "Home",
+          classList: ""
         },
         {
-          link: "#redraft-section",
+          link: "/redraft.html",
           linkText: "Redraft",
           classfList: ""
         },
         {
-          link: "#dynasty-section",
+          link: "/dynasty.html",
           linkText: "Dynasty",
           classList: ""
         },
         {
-          link: "#announcements-section",
+          link: "/announcements.html",
           linkText: "Announcements",
           classList: ""
         },
         {
-          link: "#podcast-section",
+          link: "/podcast.html",
           linkText: "Podcast",
           classList: ""
         }
