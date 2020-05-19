@@ -161,14 +161,11 @@ var app = new Vue({
       const overlay = document.getElementById('mobile-menu-overlay'); 
       const links = document.getElementsByClassName('menu-link');
       const icon = btn.childNodes[0];
-      if (this.mobileMenuDisplayed) {
-      window.scrollTo(0,0);
-      } else {
-      document.getElementById("header-title").style.display = "flex";
-      }
+      if (!this.mobileMenuDisplayed) {
+        document.getElementById("header-title").style.display = "flex";
+      } 
       icon.classList.toggle('fa-times');
       icon.classList.toggle('fa-bars');
-
       overlay.classList.toggle('hidden');
       for (let link of links) {
         link.classList.toggle('hidden');

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="img/banana.ico">
+    <link rel="icon" type="image/png" href="img/bananarama_transparent.png">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="feed.xml">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito&display=swap" rel="stylesheet">
     <title>Bananarama Fantasy Football - Dynasty</title>
@@ -75,14 +75,14 @@
                 <div>
                     <h2>Tradeblock</h2>
                     <div class="lg:flex w-full flex-wrap lg:-mx-2">
-                            <div v-for="team in sleeperLeague.data" v-if="teamHasPlayersOtb(team)" class="lg:w-1/2 px-2 py-2">
-                                <div class="bg-white shadow-md rounded h-64 overflow-auto">
+                            <div v-for="team in sleeperLeague.data" v-if="teamHasPlayersOtb(team)" class="lg:w-1/3 px-2 py-2">
+                                <div class="bg-white shadow-md rounded h-48 overflow-y-auto">
                                     <p class="font-semibold px-4 py-2 bg-secondary text-yellow-900">
                                         {{ getSleeperName(team.owner_id) }}
                                     </p>
                                     <div class="px-4 py-2">
                                         <p v-for="(player_nickname, player_id) in team.metadata" v-if="playerIsOnTheTradeBlock(team, player_nickname, player_id)"> 
-                                            <span class="text-lg">{{ getPlayerNameById(player_id) }}</span> <span class="pl-4 text-primary italic"> {{ getPlayerNickWithoutOtb(player_nickname)}}</span>
+                                            <span class="">{{ getPlayerNameById(player_id) }}</span> <span class="pl-4 text-primary italic"> {{ getPlayerNickWithoutOtb(player_nickname)}}</span>
                                         </p>
                                     </div>
                                 </div>
