@@ -37,7 +37,7 @@ var app = new Vue({
         text: 'Wenn du das liest, ist diese "Ankündigung" für dich schon ein alter Hut. Die Bananarama Fantasy Football liegen haben jetzt endlich ein gemeinsames Zuhause! Da die bisherigen Lösungen für alle Beteiligten eher unbefriedigend waren, haben sich die Schöpfer des Podcasts eine Alternative überlegt.',
         date: '13.05.2020',
         link: 'https://bananarama.netlify.app',
-        linkText: "Die neue Bananarama Webseite"
+        linkText: 'Die neue Bananarama Webseite'
       }
     ],
     reviews: [
@@ -59,8 +59,8 @@ var app = new Vue({
   },
   mounted () {
     axios
-      .get('https://api.sleeper.app/v1/league/518116516514529280/rosters')
-      .then(response => (this.sleeperLeague = response))
+    .get('https://api.sleeper.app/v1/league/518116516514529280/rosters')
+    .then(response => (this.sleeperLeague = response))
     axios
       .get('https://superkicker31.github.io/bananarama/js/nfl_players.json')
       .then(response => (this.nflPlayers = response))
@@ -73,7 +73,6 @@ var app = new Vue({
   },
   methods: {
     getAllActiveNewsItems: function () {
-      console.log(this.sleeperTransactions)
       var activeNews = [];
       for (var i = 0; i < this.news.length; i++) {
        if(this.itemHasActiveTag(this.news[i].types.join(' '))) {
@@ -91,9 +90,11 @@ var app = new Vue({
       return false;
     },
     getSleeperName(ownerId) {
-      for (var user in this.sleeperLeagueUsers.data) {
-        if(this.sleeperLeagueUsers.data[user].user_id === ownerId) {
-          return this.sleeperLeagueUsers.data[user].display_name
+      if (ownerId !== null) {
+        for (var user in this.sleeperLeagueUsers.data) {
+          if(this.sleeperLeagueUsers.data[user].user_id === ownerId) {
+            return this.sleeperLeagueUsers.data[user].display_name
+          }
         }
       }
     },
@@ -124,13 +125,21 @@ var app = new Vue({
     },
     getPlayerNameById(playerNick) {
         var playerId = parseInt(playerNick.replace("p_nick_", ""), 10);
-        return  this.nflPlayers.data.data[playerId].first_name + " " +  this.nflPlayers.data.data[playerId].last_name;
+        return this.nflPlayers.data.data[playerId].first_name + " " +  this.nflPlayers.data.data[playerId].last_name;
     },
-    playerIsOnTheTradeBlock(playerNick) {
+    playerIsOnTheTradeBlock(team, playerNick, playerId) {
+      var nick = false;
       if (playerNick.includes("OTB") || playerNick.includes("otb") || playerNick.includes("Otb")) {
-        return true;
+        nick = true;
       }
-      return false;
+
+      var convertedId = playerId.replace("p_nick_", "");
+
+      var onTeam = false;
+      if(team.players != null) {
+        onTeam =  Object.values(team.players).includes(convertedId)
+      }
+      return nick && onTeam;
     },
     getPlayerNickWithoutOtb(playerNick) {
       var newPlayerNick = playerNick.replace("otb", "").replace("OTB", "").replace("Otb", "");
@@ -138,8 +147,8 @@ var app = new Vue({
     },
     teamHasPlayersOtb(team){
       if (team.metadata != null) {
-        for (var player in team.metadata) {
-          if(this.playerIsOnTheTradeBlock(team.metadata[player])) {
+        for (var [playerId, playerNick] of Object.entries(team.metadata)) {
+          if(this.playerIsOnTheTradeBlock(team, playerNick, playerId)) {
             return true
           }
         }
