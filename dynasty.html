@@ -1,131 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="icon" type="image/png" href="img/bananarama_transparent.png">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="feed.xml">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito&display=swap" rel="stylesheet">
-    <title>Bananarama Fantasy Football - Dynasty</title>
-</head>
-<body>
-    <div id="load" class="flex justify-center items-center">
-        <div>
-            <div class="lds-ripple"><div></div><div></div></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="output.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="icon" type="image/png" href="img/bananarama_transparent.png">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="feed.xml">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito&display=swap" rel="stylesheet">
+        <title>Dynasty | Bananarama Fantasy Football</title>
+    </head>
+    <body>
+        <div id="app" class="bg-gray-100 text-gray-700 font-light">
+            <page-loader></page-loader>
+            <page-header></page-header>
+            <dynasty-content></dynasty-content>
+            <page-footer></page-footer>
         </div>
-    </div>
-    <div id="app" class="bg-gray-100 text-gray-700 font-light">
-        <a class="fixed hidden w-full h-full z-10 mobile-menu-overlay" id="mobile-menu-overlay" v-on:click="toggleMobileMenu">
-        </a>
-        <header class="w-full header text-white fixed shadow-lg z-30" id="header">
-            <a href="/"><img src="img/bananarama_transparent_logo.png" id="mobile-header-logo" class="lg:hidden w-12 fixed z-100"/></a>
-            <a href="/"><img src="img/bananarama_transparent_logo_192.png" class="xl:w-48 lg:w-32 hidden lg:inline-block fixed z-100"/></a>
-            <div class="h-full header-bg-overlay block px-4" id="header-bg-overlay">
-                <div class="lg:text-6xl md:text-4xl text-2xl tracking-wider flex justify-center font-semibold items-center h-64" id="header-title"><span id="header-title-text" class="text-center pt-1"> Bananarama Fantasy Football</span></div>
-                <div class="xl:hidden content-container lg:mx-auto uppercase tracking-wide font-normal text-xl">
-                    <a class="md:hidden flex justify-end py-4" v-on:click="toggleMobileMenu" id="mobile-menu-link"><i class="fas fa-bars text-2xl"></i></a>
-                    <span v-for="item in menu" class="hidden md:inline-block menu-link">
-                        <a @click="toggleMobileMenu" :href="item.link" class="md:px-4 py-4 md:mr-4 hover:border-blue-700 border-b-4 border-transparent block text-right"><span :class="item.classList">{{ item.linkText }}<span></span></a>
-                    </span>
-                </div>
-                <div class="xl:flex hidden content-container justify-center md:mx-auto tracking-wide font-normal text-xl">
-                    <span v-for="item in menu" class="hidden md:inline-block menu-link">
-                        <a :href="item.link" class="px-4 py-4 mr-4 hover:border-secondary border-b-4 border-transparent block text-right"><span :class="item.classList">{{ item.linkText }}<span></span></a>
-                    </span>
-                </div>
-            </div>
-        </header>
-        <div class="pt-64">
-            <section id="dynasty-section" class="pb-24 pt-32 content-container lg:mx-auto mx-2">
-                <div>
-                    <p class="text-xl uppercase font-semibold text-gray-500 tracking-wide lg:-ml-4"><a href="#dynasty-section" class="flex text-gray-700 hover:text-primary"><span class="w-4 text-gray-400">#</span><span>Dynasty</span></a></p>
-                    <p class="mt-4">
-                        Wenn es um die Bananarama Dynasty Liga auf sleeper.app geht, findest du es hier
-                    </p>
-                </div>
-                <div>
-                    <div class="py-12 mr-4 w-full">
-                        <h2>Tabelle</h2>
-                        <div class="bg-white mt-4 shadow-md inline-block rounded-md w-full">
-                            <div class="pb-2 w-full text-sm">
-                                <div class="text-primary bg-gray-200 md:text-xl flex justify-between rounded-t-md lg:px-12 px-2">
-                                    <div class="w-8 md:w-12 py-4 font-semibold">#</div>
-                                    <div class="flex-1 py-4 font-semibold">User</div>
-                                    <div class="w-8 md:w-12 py-4 font-semibold">W</div>
-                                    <div class="w-8 md:w-12 py-4 font-semibold">L</div>
-                                    <div class="w-8 md:w-12 py-4 font-semibold">PF</div>
-                                    <div class="w-12 py-4 font-semibold hidden md:block">Waiver</div>
-                                </div>
-                                <div v-for="(team, index) in sleeperLeague.data" class="flex justify-between lg:px-12 px-2 py-2">
-                                    <div class="w-8 md:w-12 text-gray-500 font-semibold">{{ index+1 }}</div>
-                                    <div class="flex-1">{{ getSleeperName(team.owner_id)}}</div>
-                                    <div class="w-8 md:w-12">{{ 0 +  team.settings.wins }}</div>
-                                    <div class="w-8 md:w-12">{{ 0 + team.settings.losses }}</div>
-                                    <div class="w-8 md:w-12">{{ 0 + team.settings.fpts }}</div>
-                                    <div class="w-12 hidden md:block">${{ 1000 - team.settings.waiver_budget_used}}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h2>Tradeblock</h2>
-                    <div class="lg:flex w-full flex-wrap lg:-mx-2">
-                            <div v-for="team in sleeperLeague.data" v-if="teamHasPlayersOtb(team)" class="lg:w-1/3 px-2 py-2">
-                                <div class="bg-white shadow-md rounded h-48 overflow-y-auto">
-                                    <p class="font-semibold px-4 py-2 bg-secondary text-yellow-900">
-                                        {{ getSleeperName(team.owner_id) }}
-                                    </p>
-                                    <div class="px-4 py-2">
-                                        <p v-for="(player_nickname, player_id) in team.metadata" v-if="playerIsOnTheTradeBlock(team, player_nickname, player_id)"> 
-                                            <span class="">{{ getPlayerNameById(player_id) }}</span> <span class="pl-4 text-primary italic"> {{ getPlayerNickWithoutOtb(player_nickname)}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-                <div class="py-12">
-                    <h2>Geschichte</h2>
-                    <div>
-                        <h3>2019</h3>
-                        <p><span>Sieger</span> <span>Running Blacks (Manager: BenjajBlack)</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>       
-        <footer class="bg-gray-800 text-gray-200 py-12">
-            <div class="content-container lg:mx-auto mx-2">
-                <div class="flex">
-                    <div class="w-1/3">
-                        <p class="uppercase text-gray-500 tracking-wide">
-                            Unsere Ligen
-                        </p>
-                        <div class="mt-4 flex">
-                            <span class="hover:text-secondary">
-                                <a target="_blank" href="https://sleeper.app/leagues/464902912561115136">Dynasty</a>
-                            </span>
-                            <span class="mx-2">|</span>
-                            <span class="hover:text-secondary">
-                                <a target="_blank" href="https://fantasy.nfl.com/league/3074665">Redraft</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-    <div>
- 
-    </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script  type="module" src="app.js" defer></script>
-</body>
+        
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <script  type="module" src="js/page-content/dynasty-content.js" defer></script>
+        <script  type="module" src="js/layout-components/page-header.js" defer></script>
+        <script  type="module" src="js/layout-components/page-footer.js" defer></script>
+        <script  type="module" src="js/layout-components/page-loader.js" defer></script>
+        <script  type="module" src="js/components/dynasty-table.js" defer></script>
+        <script  type="module" src="js/components/trade-block.js" defer></script>
+        
+        <script  type="module" src="app.js" defer></script>
+    </body>
 </html>
 
 

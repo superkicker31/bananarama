@@ -25,6 +25,9 @@ h1,h2,h3,h4,h5,h6 {
 #header-title {
     transition: all 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
 }
+#header-title-text {
+    max-width: 80%;    
+}
 #header a {
     transition: all 0.2s;
 }
@@ -99,10 +102,13 @@ h1,h2,h3,h4,h5,h6 {
       opacity: 0;
     }
   }
-  
-.mobile-menu-overlay {
-    background: rgba(0, 0, 0, 0.349);
-}
+ #mobile-menu-link-container, #mobile-menu-overlay {
+     left:100%;
+ }
+
+ #mobile-menu-link-container.active, #mobile-menu-overlay{
+     left: 0;
+ }
 
 .menu-link {
     text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
